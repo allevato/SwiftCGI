@@ -20,6 +20,11 @@
 		AAA06EE61BC6A67300620804 /* SeekOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EE51BC6A67300620804 /* SeekOrigin.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06EE71BC6A67300620804 /* SeekOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EE51BC6A67300620804 /* SeekOrigin.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06EEA1BC75F9900620804 /* InputStream+PrimitivesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EE91BC75F9900620804 /* InputStream+PrimitivesTest.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06EEC1BC765D700620804 /* OutputStream+Primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EEB1BC765D700620804 /* OutputStream+Primitives.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06EED1BC765D700620804 /* OutputStream+Primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EEB1BC765D700620804 /* OutputStream+Primitives.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06EEF1BC7664D00620804 /* OutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EEE1BC7664D00620804 /* OutputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06EF01BC7664D00620804 /* OutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EEE1BC7664D00620804 /* OutputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06EF31BC77B4C00620804 /* OutputStream+PrimitivesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EF11BC77B4C00620804 /* OutputStream+PrimitivesTest.swift */; settings = {ASSET_TAGS = (); }; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -42,6 +47,9 @@
 		AAA06EE21BC6016100620804 /* InputStream+Primitives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+Primitives.swift"; sourceTree = "<group>"; };
 		AAA06EE51BC6A67300620804 /* SeekOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekOrigin.swift; sourceTree = "<group>"; };
 		AAA06EE91BC75F9900620804 /* InputStream+PrimitivesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+PrimitivesTest.swift"; sourceTree = "<group>"; };
+		AAA06EEB1BC765D700620804 /* OutputStream+Primitives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OutputStream+Primitives.swift"; sourceTree = "<group>"; };
+		AAA06EEE1BC7664D00620804 /* OutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputStream.swift; sourceTree = "<group>"; };
+		AAA06EF11BC77B4C00620804 /* OutputStream+PrimitivesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OutputStream+PrimitivesTest.swift"; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,9 +108,11 @@
 		AAA06ED01BBF534F00620804 /* IO */ = {
 			isa = PBXGroup;
 			children = (
-				AAA06ED21BBF534F00620804 /* IOError.swift */,
 				AAA06ED31BBF534F00620804 /* InputStream.swift */,
 				AAA06EE21BC6016100620804 /* InputStream+Primitives.swift */,
+				AAA06ED21BBF534F00620804 /* IOError.swift */,
+				AAA06EEE1BC7664D00620804 /* OutputStream.swift */,
+				AAA06EEB1BC765D700620804 /* OutputStream+Primitives.swift */,
 				AAA06EE51BC6A67300620804 /* SeekOrigin.swift */,
 			);
 			path = IO;
@@ -120,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA06EE91BC75F9900620804 /* InputStream+PrimitivesTest.swift */,
+				AAA06EF11BC77B4C00620804 /* OutputStream+PrimitivesTest.swift */,
 			);
 			path = IO;
 			sourceTree = "<group>";
@@ -288,6 +299,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA06EEF1BC7664D00620804 /* OutputStream.swift in Sources */,
+				AAA06EEC1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
 				AAA06EE61BC6A67300620804 /* SeekOrigin.swift in Sources */,
 				AAA06EE31BC6016100620804 /* InputStream+Primitives.swift in Sources */,
 				AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
@@ -302,10 +315,13 @@
 			files = (
 				AAA06EE11BC3800200620804 /* XCTestCase+Extensions.swift in Sources */,
 				AAA06ECB1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
+				AAA06EF01BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EE41BC6376C00620804 /* InputStream+Primitives.swift in Sources */,
 				AAA06EDA1BBF534F00620804 /* InputStream.swift in Sources */,
 				AAA06EEA1BC75F9900620804 /* InputStream+PrimitivesTest.swift in Sources */,
+				AAA06EF31BC77B4C00620804 /* OutputStream+PrimitivesTest.swift in Sources */,
 				AAA06ED81BBF534F00620804 /* IOError.swift in Sources */,
+				AAA06EED1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
 				AAA06ECF1BBE25BC00620804 /* String+URLEncodingTest.swift in Sources */,
 				AAA06EE71BC6A67300620804 /* SeekOrigin.swift in Sources */,
 			);
