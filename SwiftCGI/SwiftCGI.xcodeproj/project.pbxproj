@@ -25,6 +25,8 @@
 		AAA06EEF1BC7664D00620804 /* OutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EEE1BC7664D00620804 /* OutputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06EF01BC7664D00620804 /* OutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EEE1BC7664D00620804 /* OutputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06EF31BC77B4C00620804 /* OutputStream+PrimitivesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EF11BC77B4C00620804 /* OutputStream+PrimitivesTest.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06EF61BC8AA9B00620804 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EF51BC8AA9B00620804 /* Thread.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06EF71BC8AA9B00620804 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EF51BC8AA9B00620804 /* Thread.swift */; settings = {ASSET_TAGS = (); }; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,7 @@
 		AAA06EEB1BC765D700620804 /* OutputStream+Primitives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OutputStream+Primitives.swift"; sourceTree = "<group>"; };
 		AAA06EEE1BC7664D00620804 /* OutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputStream.swift; sourceTree = "<group>"; };
 		AAA06EF11BC77B4C00620804 /* OutputStream+PrimitivesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OutputStream+PrimitivesTest.swift"; sourceTree = "<group>"; };
+		AAA06EF51BC8AA9B00620804 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +138,21 @@
 			path = IO;
 			sourceTree = "<group>";
 		};
+		AAA06EF41BC8AA8C00620804 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				AAA06EF51BC8AA9B00620804 /* Thread.swift */,
+			);
+			path = Concurrency;
+			sourceTree = "<group>";
+		};
+		AAA06EF81BC8B5E400620804 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Concurrency;
+			sourceTree = "<group>";
+		};
 		AAD34D7C1BB3B0AA00F81F17 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +195,7 @@
 		AAD34DA41BB3B21300F81F17 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				AAA06EF41BC8AA8C00620804 /* Concurrency */,
 				AAA06EC81BBE25AE00620804 /* Core */,
 				AAA06ED01BBF534F00620804 /* IO */,
 			);
@@ -186,6 +205,7 @@
 		AAD34DD91BB6FAE800F81F17 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				AAA06EF81BC8B5E400620804 /* Concurrency */,
 				AAA06ECC1BBE25BC00620804 /* Core */,
 				AAA06EE81BC75F9900620804 /* IO */,
 			);
@@ -306,6 +326,7 @@
 				AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AAA06ED71BBF534F00620804 /* IOError.swift in Sources */,
 				AAA06ED91BBF534F00620804 /* InputStream.swift in Sources */,
+				AAA06EF61BC8AA9B00620804 /* Thread.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +341,7 @@
 				AAA06EDA1BBF534F00620804 /* InputStream.swift in Sources */,
 				AAA06EEA1BC75F9900620804 /* InputStream+PrimitivesTest.swift in Sources */,
 				AAA06EF31BC77B4C00620804 /* OutputStream+PrimitivesTest.swift in Sources */,
+				AAA06EF71BC8AA9B00620804 /* Thread.swift in Sources */,
 				AAA06ED81BBF534F00620804 /* IOError.swift in Sources */,
 				AAA06EED1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
 				AAA06ECF1BBE25BC00620804 /* String+URLEncodingTest.swift in Sources */,
