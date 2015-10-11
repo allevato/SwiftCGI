@@ -35,6 +35,9 @@
 		AAA06F1B1BC9E64E00620804 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F1C1BC9E64E00620804 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F1F1BCABF2600620804 /* HTTPMethodTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F1D1BCABF2600620804 /* HTTPMethodTest.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F211BCAC5B700620804 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F201BCAC5B700620804 /* HTTPHeaders.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F221BCAC5B700620804 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F201BCAC5B700620804 /* HTTPHeaders.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F241BCADC9B00620804 /* HTTPHeadersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F231BCADC9B00620804 /* HTTPHeadersTest.swift */; settings = {ASSET_TAGS = (); }; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,8 @@
 		AAA06F181BC968A200620804 /* HTTPStatusTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusTest.swift; sourceTree = "<group>"; };
 		AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		AAA06F1D1BCABF2600620804 /* HTTPMethodTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethodTest.swift; sourceTree = "<group>"; };
+		AAA06F201BCAC5B700620804 /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
+		AAA06F231BCADC9B00620804 /* HTTPHeadersTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeadersTest.swift; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +174,7 @@
 		AAA06EFB1BC8C58100620804 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				AAA06F201BCAC5B700620804 /* HTTPHeaders.swift */,
 				AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */,
 				AAA06F011BC8C58100620804 /* HTTPStatus.swift */,
 				AAA06F0E1BC95C3E00620804 /* HTTPStatus+Predefined.swift */,
@@ -179,6 +185,7 @@
 		AAA06F111BC9688000620804 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				AAA06F231BCADC9B00620804 /* HTTPHeadersTest.swift */,
 				AAA06F1D1BCABF2600620804 /* HTTPMethodTest.swift */,
 				AAA06F181BC968A200620804 /* HTTPStatusTest.swift */,
 			);
@@ -353,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA06F211BCAC5B700620804 /* HTTPHeaders.swift in Sources */,
 				AAA06EEF1BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EEC1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
 				AAA06EE61BC6A67300620804 /* SeekOrigin.swift in Sources */,
@@ -371,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA06F221BCAC5B700620804 /* HTTPHeaders.swift in Sources */,
 				AAA06EE11BC3800200620804 /* XCTestCase+Extensions.swift in Sources */,
 				AAA06ECB1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AAA06EF01BC7664D00620804 /* OutputStream.swift in Sources */,
@@ -384,6 +393,7 @@
 				AAA06F0D1BC8C58100620804 /* HTTPStatus.swift in Sources */,
 				AAA06ED81BBF534F00620804 /* IOError.swift in Sources */,
 				AAA06EED1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
+				AAA06F241BCADC9B00620804 /* HTTPHeadersTest.swift in Sources */,
 				AAA06F1C1BC9E64E00620804 /* HTTPMethod.swift in Sources */,
 				AAA06ECF1BBE25BC00620804 /* String+URLEncodingTest.swift in Sources */,
 				AAA06EE71BC6A67300620804 /* SeekOrigin.swift in Sources */,
