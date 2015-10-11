@@ -32,6 +32,9 @@
 		AAA06F0F1BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F0E1BC95C3E00620804 /* HTTPStatus+Predefined.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F101BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F0E1BC95C3E00620804 /* HTTPStatus+Predefined.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F191BC968A200620804 /* HTTPStatusTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F181BC968A200620804 /* HTTPStatusTest.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F1B1BC9E64E00620804 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F1C1BC9E64E00620804 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F1F1BCABF2600620804 /* HTTPMethodTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F1D1BCABF2600620804 /* HTTPMethodTest.swift */; settings = {ASSET_TAGS = (); }; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,8 @@
 		AAA06F011BC8C58100620804 /* HTTPStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatus.swift; sourceTree = "<group>"; };
 		AAA06F0E1BC95C3E00620804 /* HTTPStatus+Predefined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HTTPStatus+Predefined.swift"; sourceTree = "<group>"; };
 		AAA06F181BC968A200620804 /* HTTPStatusTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusTest.swift; sourceTree = "<group>"; };
+		AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		AAA06F1D1BCABF2600620804 /* HTTPMethodTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethodTest.swift; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +169,7 @@
 		AAA06EFB1BC8C58100620804 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */,
 				AAA06F011BC8C58100620804 /* HTTPStatus.swift */,
 				AAA06F0E1BC95C3E00620804 /* HTTPStatus+Predefined.swift */,
 			);
@@ -173,6 +179,7 @@
 		AAA06F111BC9688000620804 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				AAA06F1D1BCABF2600620804 /* HTTPMethodTest.swift */,
 				AAA06F181BC968A200620804 /* HTTPStatusTest.swift */,
 			);
 			path = HTTP;
@@ -349,6 +356,7 @@
 				AAA06EEF1BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EEC1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
 				AAA06EE61BC6A67300620804 /* SeekOrigin.swift in Sources */,
+				AAA06F1B1BC9E64E00620804 /* HTTPMethod.swift in Sources */,
 				AAA06EE31BC6016100620804 /* InputStream+Primitives.swift in Sources */,
 				AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AAA06F0F1BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */,
@@ -370,11 +378,13 @@
 				AAA06F191BC968A200620804 /* HTTPStatusTest.swift in Sources */,
 				AAA06EDA1BBF534F00620804 /* InputStream.swift in Sources */,
 				AAA06EEA1BC75F9900620804 /* InputStream+PrimitivesTest.swift in Sources */,
+				AAA06F1F1BCABF2600620804 /* HTTPMethodTest.swift in Sources */,
 				AAA06EF31BC77B4C00620804 /* OutputStream+PrimitivesTest.swift in Sources */,
 				AAA06EF71BC8AA9B00620804 /* Thread.swift in Sources */,
 				AAA06F0D1BC8C58100620804 /* HTTPStatus.swift in Sources */,
 				AAA06ED81BBF534F00620804 /* IOError.swift in Sources */,
 				AAA06EED1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
+				AAA06F1C1BC9E64E00620804 /* HTTPMethod.swift in Sources */,
 				AAA06ECF1BBE25BC00620804 /* String+URLEncodingTest.swift in Sources */,
 				AAA06EE71BC6A67300620804 /* SeekOrigin.swift in Sources */,
 				AAA06F101BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */,
