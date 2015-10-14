@@ -55,6 +55,8 @@
 		AAA06F401BCCA20700620804 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F3E1BCCA20700620804 /* Server.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F451BCE098700620804 /* FileInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F441BCE098700620804 /* FileInputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F461BCE098700620804 /* FileInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F441BCE098700620804 /* FileInputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F481BCE9E6E00620804 /* FileOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F491BCE9E6E00620804 /* FileOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,7 @@
 		AAA06F3B1BCC9E5200620804 /* ServerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerProtocol.swift; sourceTree = "<group>"; };
 		AAA06F3E1BCCA20700620804 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		AAA06F441BCE098700620804 /* FileInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInputStream.swift; sourceTree = "<group>"; };
+		AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileOutputStream.swift; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA06F441BCE098700620804 /* FileInputStream.swift */,
+				AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */,
 				AAA06ED31BBF534F00620804 /* InputStream.swift */,
 				AAA06EE21BC6016100620804 /* InputStream+Primitives.swift */,
 				AAA06ED21BBF534F00620804 /* IOError.swift */,
@@ -432,6 +436,7 @@
 			files = (
 				AAA06F3C1BCC9E5200620804 /* ServerProtocol.swift in Sources */,
 				AAA06F211BCAC5B700620804 /* HTTPHeaders.swift in Sources */,
+				AAA06F481BCE9E6E00620804 /* FileOutputStream.swift in Sources */,
 				AAA06EEF1BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EEC1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
 				AAA06F261BCAF89700620804 /* HTTPRequest.swift in Sources */,
@@ -458,6 +463,7 @@
 			files = (
 				AAA06F221BCAC5B700620804 /* HTTPHeaders.swift in Sources */,
 				AAA06EE11BC3800200620804 /* XCTestCase+Extensions.swift in Sources */,
+				AAA06F491BCE9E6E00620804 /* FileOutputStream.swift in Sources */,
 				AAA06F311BCB55DC00620804 /* HTTPHeaders+CGIEnvironment.swift in Sources */,
 				AAA06ECB1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AAA06F381BCC84ED00620804 /* TestInputStream.swift in Sources */,
