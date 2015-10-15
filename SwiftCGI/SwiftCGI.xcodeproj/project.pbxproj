@@ -57,6 +57,12 @@
 		AAA06F461BCE098700620804 /* FileInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F441BCE098700620804 /* FileInputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F481BCE9E6E00620804 /* FileOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F491BCE9E6E00620804 /* FileOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F4C1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F4B1BCEA26700620804 /* WriteNotifyingOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F4D1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F4B1BCEA26700620804 /* WriteNotifyingOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F4F1BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F4E1BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F501BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F4E1BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F531BCF3ACF00620804 /* WriteNotifyingOutputStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F521BCF3ACF00620804 /* WriteNotifyingOutputStreamTest.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F551BCF47A300620804 /* TestOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F541BCF47A300620804 /* TestOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -101,6 +107,10 @@
 		AAA06F3E1BCCA20700620804 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		AAA06F441BCE098700620804 /* FileInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInputStream.swift; sourceTree = "<group>"; };
 		AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileOutputStream.swift; sourceTree = "<group>"; };
+		AAA06F4B1BCEA26700620804 /* WriteNotifyingOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteNotifyingOutputStream.swift; sourceTree = "<group>"; };
+		AAA06F4E1BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteNotifyingOutputStreamDelegate.swift; sourceTree = "<group>"; };
+		AAA06F521BCF3ACF00620804 /* WriteNotifyingOutputStreamTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteNotifyingOutputStreamTest.swift; sourceTree = "<group>"; };
+		AAA06F541BCF47A300620804 /* TestOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestOutputStream.swift; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA06F2B1BCB229A00620804 /* CGI */,
+				AAA06F4A1BCEA25600620804 /* IO */,
 				AAA06F3A1BCC9E0C00620804 /* Server */,
 			);
 			path = Internal;
@@ -139,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA06F321BCB70C600620804 /* CGI */,
+				AAA06F511BCF3A6900620804 /* IO */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -178,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA06F371BCC84ED00620804 /* TestInputStream.swift */,
+				AAA06F541BCF47A300620804 /* TestOutputStream.swift */,
 				AAA06EE01BC3800200620804 /* XCTestCase+Extensions.swift */,
 			);
 			path = Support;
@@ -264,6 +277,23 @@
 			name = Server;
 			path = SwiftCGI/Internal/Server;
 			sourceTree = SOURCE_ROOT;
+		};
+		AAA06F4A1BCEA25600620804 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				AAA06F4B1BCEA26700620804 /* WriteNotifyingOutputStream.swift */,
+				AAA06F4E1BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift */,
+			);
+			path = IO;
+			sourceTree = "<group>";
+		};
+		AAA06F511BCF3A6900620804 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				AAA06F521BCF3ACF00620804 /* WriteNotifyingOutputStreamTest.swift */,
+			);
+			path = IO;
+			sourceTree = "<group>";
 		};
 		AAD34D7C1BB3B0AA00F81F17 = {
 			isa = PBXGroup;
@@ -436,6 +466,7 @@
 			files = (
 				AAA06F3C1BCC9E5200620804 /* ServerProtocol.swift in Sources */,
 				AAA06F211BCAC5B700620804 /* HTTPHeaders.swift in Sources */,
+				AAA06F4C1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */,
 				AAA06F481BCE9E6E00620804 /* FileOutputStream.swift in Sources */,
 				AAA06EEF1BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EEC1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
@@ -446,6 +477,7 @@
 				AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AAA06F0F1BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */,
 				AAA06ED71BBF534F00620804 /* IOError.swift in Sources */,
+				AAA06F4F1BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift in Sources */,
 				AAA06F451BCE098700620804 /* FileInputStream.swift in Sources */,
 				AAA06ED91BBF534F00620804 /* InputStream.swift in Sources */,
 				AAA06EF61BC8AA9B00620804 /* Thread.swift in Sources */,
@@ -468,6 +500,7 @@
 				AAA06ECB1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AAA06F381BCC84ED00620804 /* TestInputStream.swift in Sources */,
 				AAA06F2E1BCB234200620804 /* CGIHTTPRequest.swift in Sources */,
+				AAA06F4D1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */,
 				AAA06EF01BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EE41BC6376C00620804 /* InputStream+Primitives.swift in Sources */,
 				AAA06F191BC968A200620804 /* HTTPStatusTest.swift in Sources */,
@@ -479,6 +512,8 @@
 				AAA06F401BCCA20700620804 /* Server.swift in Sources */,
 				AAA06F3D1BCC9E5200620804 /* ServerProtocol.swift in Sources */,
 				AAA06F0D1BC8C58100620804 /* HTTPStatus.swift in Sources */,
+				AAA06F531BCF3ACF00620804 /* WriteNotifyingOutputStreamTest.swift in Sources */,
+				AAA06F551BCF47A300620804 /* TestOutputStream.swift in Sources */,
 				AAA06F341BCB71C700620804 /* HTTPHeaders+CGIEnvironmentTest.swift in Sources */,
 				AAA06F461BCE098700620804 /* FileInputStream.swift in Sources */,
 				AAA06F2A1BCB1A4B00620804 /* HTTPResponse.swift in Sources */,
@@ -489,6 +524,7 @@
 				AAA06F1C1BC9E64E00620804 /* HTTPMethod.swift in Sources */,
 				AAA06ECF1BBE25BC00620804 /* String+URLEncodingTest.swift in Sources */,
 				AAA06F271BCAF89700620804 /* HTTPRequest.swift in Sources */,
+				AAA06F501BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift in Sources */,
 				AAA06EE71BC6A67300620804 /* SeekOrigin.swift in Sources */,
 				AAA06F101BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */,
 			);

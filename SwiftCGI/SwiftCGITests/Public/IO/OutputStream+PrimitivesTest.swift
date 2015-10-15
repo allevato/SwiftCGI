@@ -93,33 +93,3 @@ class OutputStream_PrimitivesTest: XCTestCase {
     }
   }
 }
-
-
-/// A stream that writes the data sent to it into a contiguous array of bytes for testing,
-/// simulating a file stream with those contents.
-private class TestOutputStream: OutputStream {
-
-  /// The array of bytes that will be read by the stream.
-  var testData = ContiguousArray<UInt8>()
-
-  /// The current write position of the stream.
-  var position: Int {
-    return testData.count
-  }
-
-  /// Creates a new `TestOutputStream`.
-  init() {}
-
-  func write(buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws {
-    testData.appendContentsOf(buffer[offset..<(offset + count)])
-  }
-
-  func seek(offset: Int, origin: SeekOrigin) throws -> Int {
-    // The extension methods under test don't need seek support.
-    throw IOError.Unsupported
-  }
-
-  func flush() {}
-
-  func close() {}
-}
