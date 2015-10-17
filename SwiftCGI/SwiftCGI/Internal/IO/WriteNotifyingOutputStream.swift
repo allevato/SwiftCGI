@@ -38,8 +38,8 @@ class WriteNotifyingOutputStream: OutputStream {
 
   func write(buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws {
     if let delegate = delegate where !hasCalledWillBeginWriting {
-      delegate.outputStreamWillBeginWriting(self)
       hasCalledWillBeginWriting = true
+      try delegate.outputStreamWillBeginWriting(self)
     }
     try outputStream.write(buffer, offset: offset, count: count)
   }

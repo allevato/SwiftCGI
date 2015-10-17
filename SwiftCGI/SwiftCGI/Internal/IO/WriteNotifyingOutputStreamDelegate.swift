@@ -20,5 +20,5 @@ protocol WriteNotifyingOutputStreamDelegate: class {
   /// Tells the delegate that the first write operation is about to occur on the stream.
   ///
   /// - Parameter outputStream: The output stream that called this method.
-  func outputStreamWillBeginWriting(outputStream: OutputStream)
+  func outputStreamWillBeginWriting(outputStream: OutputStream) throws
 }
