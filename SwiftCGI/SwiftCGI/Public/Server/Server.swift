@@ -59,8 +59,7 @@ public class Server {
   /// Creates a new server.
   public init() {
     if Server.isCGI() {
-      // TODO: Implement FastCGI.
-      fatalError("CGI not yet implemented.")
+      impl = CGIServer()
     } else {
       // TODO: Implement FastCGI.
       fatalError("FastCGI not yet implemented.")
