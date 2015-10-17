@@ -66,6 +66,9 @@
 		AAA06F5A1BD0948400620804 /* OutputStream+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F591BD0948400620804 /* OutputStream+Strings.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F5B1BD0948400620804 /* OutputStream+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F591BD0948400620804 /* OutputStream+Strings.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F5D1BD1EE5C00620804 /* OutputStream+StringsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F5C1BD1EE5C00620804 /* OutputStream+StringsTest.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F5F1BD1F4E600620804 /* CGIHTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F5E1BD1F4E600620804 /* CGIHTTPResponse.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F601BD1F4E600620804 /* CGIHTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F5E1BD1F4E600620804 /* CGIHTTPResponse.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F621BD1FBDC00620804 /* CGIHTTPResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F611BD1FBDC00620804 /* CGIHTTPResponseTest.swift */; settings = {ASSET_TAGS = (); }; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -116,6 +119,8 @@
 		AAA06F541BCF47A300620804 /* TestOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestOutputStream.swift; sourceTree = "<group>"; };
 		AAA06F591BD0948400620804 /* OutputStream+Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OutputStream+Strings.swift"; sourceTree = "<group>"; };
 		AAA06F5C1BD1EE5C00620804 /* OutputStream+StringsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OutputStream+StringsTest.swift"; sourceTree = "<group>"; };
+		AAA06F5E1BD1F4E600620804 /* CGIHTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGIHTTPResponse.swift; sourceTree = "<group>"; };
+		AAA06F611BD1FBDC00620804 /* CGIHTTPResponseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGIHTTPResponseTest.swift; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA06F2C1BCB234200620804 /* CGIHTTPRequest.swift */,
+				AAA06F5E1BD1F4E600620804 /* CGIHTTPResponse.swift */,
 				AAA06F2F1BCB55DC00620804 /* HTTPHeaders+CGIEnvironment.swift */,
 			);
 			path = CGI;
@@ -263,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA06F351BCC843C00620804 /* CGIHTTPRequestTest.swift */,
+				AAA06F611BD1FBDC00620804 /* CGIHTTPResponseTest.swift */,
 				AAA06F331BCB71C700620804 /* HTTPHeaders+CGIEnvironmentTest.swift */,
 			);
 			path = CGI;
@@ -489,6 +496,7 @@
 				AAA06F451BCE098700620804 /* FileInputStream.swift in Sources */,
 				AAA06ED91BBF534F00620804 /* InputStream.swift in Sources */,
 				AAA06EF61BC8AA9B00620804 /* Thread.swift in Sources */,
+				AAA06F5F1BD1F4E600620804 /* CGIHTTPResponse.swift in Sources */,
 				AAA06F2D1BCB234200620804 /* CGIHTTPRequest.swift in Sources */,
 				AAA06F301BCB55DC00620804 /* HTTPHeaders+CGIEnvironment.swift in Sources */,
 				AAA06F291BCB1A4B00620804 /* HTTPResponse.swift in Sources */,
@@ -527,6 +535,7 @@
 				AAA06F5D1BD1EE5C00620804 /* OutputStream+StringsTest.swift in Sources */,
 				AAA06F461BCE098700620804 /* FileInputStream.swift in Sources */,
 				AAA06F2A1BCB1A4B00620804 /* HTTPResponse.swift in Sources */,
+				AAA06F601BD1F4E600620804 /* CGIHTTPResponse.swift in Sources */,
 				AAA06ED81BBF534F00620804 /* IOError.swift in Sources */,
 				AAA06EED1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
 				AAA06F361BCC843C00620804 /* CGIHTTPRequestTest.swift in Sources */,
@@ -534,6 +543,7 @@
 				AAA06F1C1BC9E64E00620804 /* HTTPMethod.swift in Sources */,
 				AAA06ECF1BBE25BC00620804 /* String+URLEncodingTest.swift in Sources */,
 				AAA06F271BCAF89700620804 /* HTTPRequest.swift in Sources */,
+				AAA06F621BD1FBDC00620804 /* CGIHTTPResponseTest.swift in Sources */,
 				AAA06F501BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift in Sources */,
 				AAA06EE71BC6A67300620804 /* SeekOrigin.swift in Sources */,
 				AAA06F101BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */,
