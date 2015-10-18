@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA6230EC1BD4483A0094B96C /* InputStream+StringsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EC91BBE25AE00620804 /* String+URLEncoding.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06ECB1BBE25AE00620804 /* String+URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EC91BBE25AE00620804 /* String+URLEncoding.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06ECF1BBE25BC00620804 /* String+URLEncodingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06ECD1BBE25BC00620804 /* String+URLEncodingTest.swift */; settings = {ASSET_TAGS = (); }; };
@@ -72,6 +73,8 @@
 		AAA06F641BD2A49200620804 /* CGIServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F631BD2A49200620804 /* CGIServer.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F651BD2A49200620804 /* CGIServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F631BD2A49200620804 /* CGIServer.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06F681BD2B24300620804 /* CGIServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F671BD2B24300620804 /* CGIServerTest.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F6A1BD3FCC200620804 /* InputStream+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F691BD3FCC200620804 /* InputStream+Strings.swift */; settings = {ASSET_TAGS = (); }; };
+		AAA06F6B1BD3FCC200620804 /* InputStream+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F691BD3FCC200620804 /* InputStream+Strings.swift */; settings = {ASSET_TAGS = (); }; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -86,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+StringsTest.swift"; sourceTree = "<group>"; };
 		AAA06EC91BBE25AE00620804 /* String+URLEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+URLEncoding.swift"; sourceTree = "<group>"; };
 		AAA06ECD1BBE25BC00620804 /* String+URLEncodingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+URLEncodingTest.swift"; sourceTree = "<group>"; };
 		AAA06ED21BBF534F00620804 /* IOError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOError.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		AAA06F611BD1FBDC00620804 /* CGIHTTPResponseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGIHTTPResponseTest.swift; sourceTree = "<group>"; };
 		AAA06F631BD2A49200620804 /* CGIServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGIServer.swift; sourceTree = "<group>"; };
 		AAA06F671BD2B24300620804 /* CGIServerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGIServerTest.swift; sourceTree = "<group>"; };
+		AAA06F691BD3FCC200620804 /* InputStream+Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+Strings.swift"; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +199,7 @@
 				AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */,
 				AAA06ED31BBF534F00620804 /* InputStream.swift */,
 				AAA06EE21BC6016100620804 /* InputStream+Primitives.swift */,
+				AAA06F691BD3FCC200620804 /* InputStream+Strings.swift */,
 				AAA06ED21BBF534F00620804 /* IOError.swift */,
 				AAA06EEE1BC7664D00620804 /* OutputStream.swift */,
 				AAA06EEB1BC765D700620804 /* OutputStream+Primitives.swift */,
@@ -217,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA06EE91BC75F9900620804 /* InputStream+PrimitivesTest.swift */,
+				AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */,
 				AAA06EF11BC77B4C00620804 /* OutputStream+PrimitivesTest.swift */,
 				AAA06F5C1BD1EE5C00620804 /* OutputStream+StringsTest.swift */,
 			);
@@ -504,6 +511,7 @@
 				AAA06EE61BC6A67300620804 /* SeekOrigin.swift in Sources */,
 				AAA06F1B1BC9E64E00620804 /* HTTPMethod.swift in Sources */,
 				AAA06EE31BC6016100620804 /* InputStream+Primitives.swift in Sources */,
+				AAA06F6A1BD3FCC200620804 /* InputStream+Strings.swift in Sources */,
 				AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AAA06F0F1BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */,
 				AAA06ED71BBF534F00620804 /* IOError.swift in Sources */,
@@ -536,8 +544,10 @@
 				AAA06F681BD2B24300620804 /* CGIServerTest.swift in Sources */,
 				AAA06F2E1BCB234200620804 /* CGIHTTPRequest.swift in Sources */,
 				AAA06F4D1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */,
+				AA6230EC1BD4483A0094B96C /* InputStream+StringsTest.swift in Sources */,
 				AAA06EF01BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EE41BC6376C00620804 /* InputStream+Primitives.swift in Sources */,
+				AAA06F6B1BD3FCC200620804 /* InputStream+Strings.swift in Sources */,
 				AAA06F191BC968A200620804 /* HTTPStatusTest.swift in Sources */,
 				AAA06EDA1BBF534F00620804 /* InputStream.swift in Sources */,
 				AAA06EEA1BC75F9900620804 /* InputStream+PrimitivesTest.swift in Sources */,
