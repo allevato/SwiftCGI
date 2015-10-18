@@ -15,4 +15,11 @@
 import SwiftCGI
 
 
-print("Hello, world!")
+let server = Server()
+server.listen { request, response in
+  do {
+    try response.contentStream.write("Hello, world!\n")
+  } catch {
+    fatalError("Failed to write output to the response stream.")
+  }
+}
