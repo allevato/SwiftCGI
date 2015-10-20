@@ -17,8 +17,29 @@ import SwiftCGI
 
 let server = Server()
 server.listen { request, response in
+  let responseStream = response.contentStream
   do {
-    try response.contentStream.write("Hello, world!\n")
+    try responseStream.write("Request headers:\n")
+    try responseStream.write("----------------\n")
+    for (header, value) in request.headers {
+      try responseStream.write("• \(header): \(value)\n")
+    }
+    try responseStream.write("\n")
+
+    try responseStream.write("Other request properties:\n")
+    try responseStream.write("-------------------------\n")
+    try responseStream.write("• Method: \(request.method)\n")
+    try responseStream.write("• Path: \(request.path)\n")
+    try responseStream.write("• Query: \(request.queryString)\n")
+    try responseStream.write("• Referrer: \(request.referrer)\n")
+    try responseStream.write("• Translated path: \(request.translatedPath)\n")
+    try responseStream.write("\n")
+
+    try responseStream.write("Request body:\n")
+    try responseStream.write("-------------\n")
+    if let requestBody = try request.contentStream.readString() {
+      try responseStream.write(requestBody)
+    }
   } catch {
     fatalError("Failed to write output to the response stream.")
   }
