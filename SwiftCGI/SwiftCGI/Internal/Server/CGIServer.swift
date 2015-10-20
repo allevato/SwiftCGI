@@ -50,7 +50,8 @@ class CGIServer: ServerProtocol {
     let environment = process.environment
 
     let requestStream = FileInputStream(fileDescriptor: STDIN_FILENO)
-    let responseStream = FileOutputStream(fileDescriptor: STDOUT_FILENO)
+    let responseStream =
+        BufferingOutputStream(outputStream: FileOutputStream(fileDescriptor: STDOUT_FILENO))
 
     self.init(
         environment: environment, requestStream: requestStream, responseStream: responseStream)
