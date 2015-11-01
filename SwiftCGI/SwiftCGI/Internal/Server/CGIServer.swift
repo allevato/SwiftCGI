@@ -49,7 +49,8 @@ class CGIServer: ServerProtocol {
     let process = NSProcessInfo.processInfo()
     let environment = process.environment
 
-    let requestStream = FileInputStream(fileDescriptor: STDIN_FILENO)
+    let requestStream =
+        BufferingInputStream(inputStream: FileInputStream(fileDescriptor: STDIN_FILENO))
     let responseStream =
         BufferingOutputStream(outputStream: FileOutputStream(fileDescriptor: STDOUT_FILENO))
 
