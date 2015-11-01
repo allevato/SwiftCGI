@@ -22,11 +22,18 @@ public extension XCTestCase {
   /// throw.
   ///
   /// - Parameter body: The code to assert does not throw an error.
-  public func XCTAssertNoThrow(@noescape body: () throws -> ()) {
+  /// - Parameter file: The name of the source file in which the assertion failed. This should
+  ///   typically be left as its default value, unless you are wrapping this assertion in another
+  ///   helper function and need to pass in the original context.
+  /// - Parameter line: The line number on which the assertion failed. This should typically be left
+  ///   as its default value, unless you are wrapping this assertion in another helper function and
+  ///   need to pass in the original context.
+  public func XCTAssertNoThrow(file: String = __FILE__, line: UInt = __LINE__,
+      @noescape body: () throws -> ()) {
     do {
       try body()
     } catch let e {
-      XCTFail("Closure should not have thrown an error, but did throw \(e)")
+      XCTFail("Closure should not have thrown an error, but did throw \(e)", file: file, line: line)
     }
   }
 
@@ -42,13 +49,22 @@ public extension XCTestCase {
   ///
   /// - Parameter expected: The error that is expected to be thrown.
   /// - Parameter body: The code to assert throws the error.
-  public func XCTAssertThrow(expected: ErrorType, @noescape body: () throws -> ()) {
+  /// - Parameter file: The name of the source file in which the assertion failed. This should
+  ///   typically be left as its default value, unless you are wrapping this assertion in another
+  ///   helper function and need to pass in the original context.
+  /// - Parameter line: The line number on which the assertion failed. This should typically be left
+  ///   as its default value, unless you are wrapping this assertion in another helper function and
+  ///   need to pass in the original context.
+  public func XCTAssertThrow(expected: ErrorType, file: String = __FILE__, line: UInt = __LINE__,
+      @noescape body: () throws -> ()) {
     do {
       try body()
-      XCTFail("Closure should have thrown \(expected), but didn't throw an error")
+      XCTFail("Closure should have thrown \(expected), but didn't throw an error",
+          file: file, line: line)
     } catch let actual {
       XCTAssertEqual("\(actual)", "\(expected)",
-        "Closure should have thrown \(expected), but actually threw \(actual)")
+        "Closure should have thrown \(expected), but actually threw \(actual)",
+        file: file, line: line)
     }
   }
 }
