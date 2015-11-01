@@ -47,7 +47,7 @@ public class BufferingOutputStream: OutputStream {
     if count > outputBuffer.count {
       // If the amount of data to write is larger than the buffer, flush the buffer and write the
       // new data directly to the underlying stream. This is acceptable behavior since the purpose
-      // of the buffer is to reduce I/O thrashing for reads smaller than the buffer size.
+      // of the buffer is to reduce I/O thrashing for writes smaller than the buffer size.
       flush()
       try outputStream.write(buffer, offset: offset, count: count)
       return

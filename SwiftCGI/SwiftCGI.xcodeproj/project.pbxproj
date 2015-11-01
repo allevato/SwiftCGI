@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA27D2941BD9E65D00028A42 /* BufferingInputStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */; settings = {ASSET_TAGS = (); }; };
 		AA6230EC1BD4483A0094B96C /* InputStream+StringsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */; settings = {ASSET_TAGS = (); }; };
 		AA6230EE1BD5CA150094B96C /* BufferingOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AA6230EF1BD5CA150094B96C /* BufferingOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AA6230F11BD5E0820094B96C /* BufferingOutputStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230F01BD5E0820094B96C /* BufferingOutputStreamTest.swift */; settings = {ASSET_TAGS = (); }; };
+		AA6230F31BD72E380094B96C /* BufferingInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230F21BD72E380094B96C /* BufferingInputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		AA6230F41BD72E380094B96C /* BufferingInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230F21BD72E380094B96C /* BufferingInputStream.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EC91BBE25AE00620804 /* String+URLEncoding.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06ECB1BBE25AE00620804 /* String+URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EC91BBE25AE00620804 /* String+URLEncoding.swift */; settings = {ASSET_TAGS = (); }; };
 		AAA06ECF1BBE25BC00620804 /* String+URLEncodingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06ECD1BBE25BC00620804 /* String+URLEncodingTest.swift */; settings = {ASSET_TAGS = (); }; };
@@ -92,9 +95,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingInputStreamTest.swift; sourceTree = "<group>"; };
 		AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+StringsTest.swift"; sourceTree = "<group>"; };
 		AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingOutputStream.swift; sourceTree = "<group>"; };
 		AA6230F01BD5E0820094B96C /* BufferingOutputStreamTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingOutputStreamTest.swift; sourceTree = "<group>"; };
+		AA6230F21BD72E380094B96C /* BufferingInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingInputStream.swift; sourceTree = "<group>"; };
 		AAA06EC91BBE25AE00620804 /* String+URLEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+URLEncoding.swift"; sourceTree = "<group>"; };
 		AAA06ECD1BBE25BC00620804 /* String+URLEncodingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+URLEncodingTest.swift"; sourceTree = "<group>"; };
 		AAA06ED21BBF534F00620804 /* IOError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOError.swift; sourceTree = "<group>"; };
@@ -200,6 +205,7 @@
 		AAA06ED01BBF534F00620804 /* IO */ = {
 			isa = PBXGroup;
 			children = (
+				AA6230F21BD72E380094B96C /* BufferingInputStream.swift */,
 				AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */,
 				AAA06F441BCE098700620804 /* FileInputStream.swift */,
 				AAA06F471BCE9E6E00620804 /* FileOutputStream.swift */,
@@ -228,6 +234,7 @@
 		AAA06EE81BC75F9900620804 /* IO */ = {
 			isa = PBXGroup;
 			children = (
+				AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */,
 				AA6230F01BD5E0820094B96C /* BufferingOutputStreamTest.swift */,
 				AAA06EE91BC75F9900620804 /* InputStream+PrimitivesTest.swift */,
 				AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */,
@@ -512,6 +519,7 @@
 				AAA06F4C1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */,
 				AAA06F481BCE9E6E00620804 /* FileOutputStream.swift in Sources */,
 				AAA06EEF1BC7664D00620804 /* OutputStream.swift in Sources */,
+				AA6230F31BD72E380094B96C /* BufferingInputStream.swift in Sources */,
 				AAA06EEC1BC765D700620804 /* OutputStream+Primitives.swift in Sources */,
 				AAA06F261BCAF89700620804 /* HTTPRequest.swift in Sources */,
 				AAA06F641BD2A49200620804 /* CGIServer.swift in Sources */,
@@ -557,6 +565,7 @@
 				AAA06EF01BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EE41BC6376C00620804 /* InputStream+Primitives.swift in Sources */,
 				AA6230F11BD5E0820094B96C /* BufferingOutputStreamTest.swift in Sources */,
+				AA6230F41BD72E380094B96C /* BufferingInputStream.swift in Sources */,
 				AAA06F6B1BD3FCC200620804 /* InputStream+Strings.swift in Sources */,
 				AAA06F191BC968A200620804 /* HTTPStatusTest.swift in Sources */,
 				AAA06EDA1BBF534F00620804 /* InputStream.swift in Sources */,
@@ -565,6 +574,7 @@
 				AAA06EF31BC77B4C00620804 /* OutputStream+PrimitivesTest.swift in Sources */,
 				AAA06EF71BC8AA9B00620804 /* Thread.swift in Sources */,
 				AAA06F401BCCA20700620804 /* Server.swift in Sources */,
+				AA27D2941BD9E65D00028A42 /* BufferingInputStreamTest.swift in Sources */,
 				AAA06F3D1BCC9E5200620804 /* ServerProtocol.swift in Sources */,
 				AAA06F0D1BC8C58100620804 /* HTTPStatus.swift in Sources */,
 				AAA06F531BCF3ACF00620804 /* WriteNotifyingOutputStreamTest.swift in Sources */,
