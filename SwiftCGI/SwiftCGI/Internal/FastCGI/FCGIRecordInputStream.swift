@@ -13,40 +13,45 @@
 // limitations under the License.
 
 
-/// An input stream that internally loads chunks of data into an internal buffer and serves read
-/// requests from it to improve performance.
-public class BufferingInputStream: InputStream {
+/// An input stream that reads its data from FastCGI records (of type `Stdin` or `Data`) read from
+/// its underlying stream.
+class FCGIRecordInputStream: InputStream {
 
-  /// The default size of the buffer.
-  private static let defaultBufferSize = 16384
+  /// Denotes whether the records read from the underlying stream are expected to have bodies of
+  /// type `Stdin` or `Data`.
+  enum BodyType {
+    /// Expect `FCGIRecordBody.Stdin` for the records read from the underlying stream.
+    case Stdin
 
-  /// The input stream from which this buffering stream reads its input.
+    /// Expect `FCGIRecordBody.Data` for the records read from the underlying stream.
+    case Data
+  }
+
+  /// The underlying stream from which the FastCGI records will be read.
   private let inputStream: InputStream
 
-  /// The buffer that holds data read from the underlying stream.
-  private var inputBuffer: [UInt8]
+  /// The expected body type of records read from the underlying stream.
+  private let bodyType: BodyType
 
-  /// The number of bytes in the input buffer that are actually filled with valid data.
-  private var inputBufferCount: Int
+  /// The buffer that holds data read from the most recent record.
+  private var inputBuffer: [UInt8]
 
   /// The index into the buffer at which the next data will be read.
   private var inputBufferOffset: Int
 
-  /// Creates a new buffering input stream that reads from the given input stream, optionally
-  /// specifying the internal buffer size.
-  public init(
-      inputStream: InputStream, bufferSize: Int = BufferingInputStream.defaultBufferSize) {
+  /// Creates an input stream that reads FastCGI records from another input stream with the given
+  /// expected body type.
+  ///
+  /// - Parameter inputStream: The input stream from which the FastCGI records will be read.
+  /// - Parameter bodyType: The expected body type of records read from the underlying stream.
+  init(inputStream: InputStream, bodyType: BodyType) {
     self.inputStream = inputStream
-    inputBuffer = [UInt8](count: bufferSize, repeatedValue: 0)
-    inputBufferCount = 0
+    self.bodyType = bodyType
+    inputBuffer = []
     inputBufferOffset = 0
   }
 
-  deinit {
-    close()
-  }
-
-  public func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
+  func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
     if count == 0 {
       return 0
     }
@@ -59,7 +64,7 @@ public class BufferingInputStream: InputStream {
 
       do {
         let readThisTime = try readFromUnderlyingStream(
-            &buffer, offset: offset + readSoFar, count: remaining)
+          &buffer, offset: offset + readSoFar, count: remaining)
 
         readSoFar += readThisTime
         if readThisTime == 0 {
@@ -79,16 +84,16 @@ public class BufferingInputStream: InputStream {
     return readSoFar
   }
 
-  public func seek(offset: Int, origin: SeekOrigin) throws -> Int {
-    // TODO: Support seeking.
+  /// Seeking is not supported on FCGI input streams.
+  func seek(offset: Int, origin: SeekOrigin) throws -> Int {
     throw IOError.Unsupported
   }
 
-  public func close() {
+  func close() {
     inputStream.close()
   }
 
-  /// Reads data at most once from the underlying stream, filling the buffer if necessary.
+  /// Reads data at most once from the underlying stream.
   ///
   /// - Parameter buffer: The array into which the data should be written.
   /// - Parameter offset: The byte offset in `buffer` into which to start writing data.
@@ -99,30 +104,45 @@ public class BufferingInputStream: InputStream {
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
   private func readFromUnderlyingStream(
       inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
-    var available = inputBufferCount - inputBufferOffset
+    var available = inputBuffer.count - inputBufferOffset
     if available == 0 {
-      // If there is nothing currently in the buffer and the requested count is at least as large as
-      // the buffer, then just read the data directly from the underlying stream. This is acceptable
-      // since the purpose of the buffer is to reduce I/O thrashing, and breaking a larger read into
-      // multiple smaller ones would have the opposite effect.
-      if count >= inputBuffer.count {
-        return try inputStream.read(&buffer, offset: offset, count: count)
-      }
-
       // Fill the buffer by reading from the underlying stream.
-      inputBufferCount = try inputStream.read(&inputBuffer, offset: 0, count: inputBuffer.count)
+      inputBuffer = try readNextRecord()
       inputBufferOffset = 0
-      available = inputBufferCount
+      available = inputBuffer.count
 
-      if inputBufferCount == 0 {
+      // The end of the stream is denoted by a final record with no content.
+      if inputBuffer.count == 0 {
         throw IOError.EOF
       }
     }
 
     let countToCopy = (available < count) ? available : count
     buffer.replaceRange(offset..<offset + countToCopy,
-        with: inputBuffer[inputBufferOffset..<inputBufferOffset + countToCopy])
+      with: inputBuffer[inputBufferOffset..<inputBufferOffset + countToCopy])
     inputBufferOffset += countToCopy
     return countToCopy
+  }
+
+  /// Reads the next record from the stream, verifies that it is the expected type, and returns its
+  /// byte array.
+  ///
+  /// - Returns: The byte array from the body of the next record.
+  /// - Throws: `FCGIError.UnexpectedRecordType` if an unexpected record (for example, `.Data` when
+  ///   expecting `.Stdin`) is encountered.
+  private func readNextRecord() throws -> [UInt8] {
+    let record = try FCGIRecord(inputStream: inputStream)
+    let buffer: [UInt8]
+
+    switch (record.body, bodyType) {
+    case (.Stdin(let bytes), .Stdin):
+      buffer = bytes
+    case (.Data(let bytes), .Data):
+      buffer = bytes
+    default:
+      throw FCGIError.UnexpectedRecordType
+    }
+
+    return buffer
   }
 }

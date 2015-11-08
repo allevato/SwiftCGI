@@ -153,8 +153,23 @@ enum FCGIRecordBody {
     case .UnknownType(let type):
       try outputStream.write(Int8(type))
       try outputStream.write([UInt8](count: 7, repeatedValue: 0))
-    default:
-      fatalError("Records of type \(self) cannot be written from app to web server, only read")
+
+    // The following body types aren't written from the app to the server in normal operation, but
+    // we provide their serialization for testing purposes.
+    case .BeginRequest(let role, let flags):
+      try outputStream.write(role.rawValue.bigEndian)
+      try outputStream.write(flags.rawValue)
+      try outputStream.write([UInt8](count: 5, repeatedValue: 0))
+    case .AbortRequest:
+      break
+    case .Params(let bytes):
+      try outputStream.write(bytes)
+    case .Stdin(let bytes):
+      try outputStream.write(bytes)
+    case .Data(let bytes):
+      try outputStream.write(bytes)
+    case .GetValues(let bytes):
+      try outputStream.write(bytes)
     }
   }
 }
