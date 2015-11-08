@@ -22,6 +22,9 @@
 		AA2509B21BE86FB000E94307 /* FCGINameValueSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509B11BE86FB000E94307 /* FCGINameValueSerialization.swift */; };
 		AA2509B31BE86FB000E94307 /* FCGINameValueSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509B11BE86FB000E94307 /* FCGINameValueSerialization.swift */; };
 		AA2509B61BE9BEF400E94307 /* FCGINameValueSerializationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509B41BE9BEF400E94307 /* FCGINameValueSerializationTest.swift */; };
+		AA2509B81BEE73A100E94307 /* FCGIRecordOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509B71BEE73A100E94307 /* FCGIRecordOutputStream.swift */; };
+		AA2509B91BEE73A100E94307 /* FCGIRecordOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509B71BEE73A100E94307 /* FCGIRecordOutputStream.swift */; };
+		AA2509BB1BEED16400E94307 /* FCGIRecordOutputStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509BA1BEED16400E94307 /* FCGIRecordOutputStreamTest.swift */; };
 		AA27D2941BD9E65D00028A42 /* BufferingInputStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */; };
 		AA6230EC1BD4483A0094B96C /* InputStream+StringsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */; };
 		AA6230EE1BD5CA150094B96C /* BufferingOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */; };
@@ -119,6 +122,8 @@
 		AA2509AF1BE85B1C00E94307 /* FCGIRecordTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGIRecordTest.swift; sourceTree = "<group>"; };
 		AA2509B11BE86FB000E94307 /* FCGINameValueSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGINameValueSerialization.swift; sourceTree = "<group>"; };
 		AA2509B41BE9BEF400E94307 /* FCGINameValueSerializationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGINameValueSerializationTest.swift; sourceTree = "<group>"; };
+		AA2509B71BEE73A100E94307 /* FCGIRecordOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGIRecordOutputStream.swift; sourceTree = "<group>"; };
+		AA2509BA1BEED16400E94307 /* FCGIRecordOutputStreamTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGIRecordOutputStreamTest.swift; sourceTree = "<group>"; };
 		AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingInputStreamTest.swift; sourceTree = "<group>"; };
 		AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+StringsTest.swift"; sourceTree = "<group>"; };
 		AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingOutputStream.swift; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 				AA2509A91BE724E500E94307 /* FCGIProtocolStatus.swift */,
 				AA25099D1BE6DF8700E94307 /* FCGIRecord.swift */,
 				AA2509A01BE6E2EF00E94307 /* FCGIRecordBody.swift */,
+				AA2509B71BEE73A100E94307 /* FCGIRecordOutputStream.swift */,
 			);
 			path = FastCGI;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 			children = (
 				AA2509B41BE9BEF400E94307 /* FCGINameValueSerializationTest.swift */,
 				AA2509AD1BE737DE00E94307 /* FCGIRecordBodyTest.swift */,
+				AA2509BA1BEED16400E94307 /* FCGIRecordOutputStreamTest.swift */,
 				AA2509AF1BE85B1C00E94307 /* FCGIRecordTest.swift */,
 			);
 			path = FastCGI;
@@ -597,6 +604,7 @@
 				AA2509A41BE723F100E94307 /* FCGIBeginRequestFlags.swift in Sources */,
 				AAA06F3F1BCCA20700620804 /* Server.swift in Sources */,
 				AAA06F0C1BC8C58100620804 /* HTTPStatus.swift in Sources */,
+				AA2509B81BEE73A100E94307 /* FCGIRecordOutputStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +632,7 @@
 				AAA06F6B1BD3FCC200620804 /* InputStream+Strings.swift in Sources */,
 				AAA06F191BC968A200620804 /* HTTPStatusTest.swift in Sources */,
 				AAA06EDA1BBF534F00620804 /* InputStream.swift in Sources */,
+				AA2509B91BEE73A100E94307 /* FCGIRecordOutputStream.swift in Sources */,
 				AAA06EEA1BC75F9900620804 /* InputStream+PrimitivesTest.swift in Sources */,
 				AAA06F1F1BCABF2600620804 /* HTTPMethodTest.swift in Sources */,
 				AAA06EF31BC77B4C00620804 /* OutputStream+PrimitivesTest.swift in Sources */,
@@ -641,6 +650,7 @@
 				AAA06F5D1BD1EE5C00620804 /* OutputStream+StringsTest.swift in Sources */,
 				AAA06F461BCE098700620804 /* FileInputStream.swift in Sources */,
 				AA25099F1BE6DF8700E94307 /* FCGIRecord.swift in Sources */,
+				AA2509BB1BEED16400E94307 /* FCGIRecordOutputStreamTest.swift in Sources */,
 				AAA06F2A1BCB1A4B00620804 /* HTTPResponse.swift in Sources */,
 				AAA06F601BD1F4E600620804 /* CGIHTTPResponse.swift in Sources */,
 				AA2509B01BE85B1C00E94307 /* FCGIRecordTest.swift in Sources */,
