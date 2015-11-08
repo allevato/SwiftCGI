@@ -15,22 +15,19 @@
 
 /// Defines basic input functions for reading from a data stream, such as a file.
 ///
-/// This protocol is modeled after similar interfaces from Java and .NET. It uses `ContiguousArray`
-/// for its storage instead of `Array` so that the unsafe pointer to the underlying memory can be
-/// easily accessed in implementations. (For example, streams for POSIX files can pass the pointer
-/// directly into the low-level file functions.)
+/// This protocol is modeled after similar interfaces from Java and .NET.
 public protocol InputStream {
 
   /// Reads `count` bytes from the stream into the array `buffer` starting at `offset`.
   ///
-  /// - Parameter buffer: The contiguous array into which the data should be written.
+  /// - Parameter buffer: The array into which the data should be written.
   /// - Parameter offset: The byte offset in `buffer` into which to start writing data.
   /// - Parameter count: The maximum number of bytes to read from the stream.
   /// - Returns: The number of bytes that were actually read. This can be less than the requested
   ///   number of bytes if that many bytes are not available, or 0 if the end of the stream is
   ///   reached.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func read(inout buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws -> Int
+  func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int
 
   /// Seeks to a new position in the stream.
   ///

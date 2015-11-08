@@ -64,7 +64,7 @@ class CGIServerTest: XCTestCase {
   }
 
   func testListen_whenWritingToResponse_writesToOutputStream() {
-    let dataToWrite: ContiguousArray<UInt8> = [0x41, 0x42, 0x43]
+    let dataToWrite: [UInt8] = [0x41, 0x42, 0x43]
     server.listen { request, response in
       self.XCTAssertNoThrow {
         try response.contentStream.write(dataToWrite)

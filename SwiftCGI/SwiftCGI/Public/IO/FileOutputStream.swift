@@ -58,7 +58,7 @@ public class FileOutputStream: OutputStream {
     }
   }
 
-  public func write(buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws {
+  public func write(buffer: [UInt8], offset: Int, count: Int) throws {
     buffer.withUnsafeBufferPointer { buffer in
       let pointer = buffer.baseAddress.advancedBy(offset)
       // TODO: Detect errors other than EOF and throw them.

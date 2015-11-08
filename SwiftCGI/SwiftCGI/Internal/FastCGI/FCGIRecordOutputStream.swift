@@ -48,9 +48,9 @@ class FCGIRecordOutputStream: OutputStream {
     self.bodyType = bodyType
   }
 
-  func write(buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws {
+  func write(buffer: [UInt8], offset: Int, count: Int) throws {
     let subsequence = buffer[offset..<(offset + count)]
-    let record = recordWithBytes(ContiguousArray(subsequence))
+    let record = recordWithBytes(Array(subsequence))
     try record.write(outputStream)
   }
 
@@ -80,7 +80,7 @@ class FCGIRecordOutputStream: OutputStream {
   ///
   /// - Parameter bytes: The bytes to write in the FCGI record.
   /// - Returns: A new FCGI record with the given data.
-  private func recordWithBytes(bytes: ContiguousArray<UInt8>) -> FCGIRecord {
+  private func recordWithBytes(bytes: [UInt8]) -> FCGIRecord {
     let recordBody: FCGIRecordBody
     switch bodyType {
     case .Stdout: recordBody = .Stdout(bytes: bytes)

@@ -25,7 +25,7 @@ public class BufferingOutputStream: OutputStream {
 
   /// The buffer that holds data written to the stream before it is flushed to the underlying
   /// stream.
-  private var outputBuffer: ContiguousArray<UInt8>
+  private var outputBuffer: [UInt8]
 
   /// The index into the buffer at which the next data will be written.
   private var outputBufferOffset: Int
@@ -35,7 +35,7 @@ public class BufferingOutputStream: OutputStream {
   public init(
       outputStream: OutputStream, bufferSize: Int = BufferingOutputStream.defaultBufferSize) {
     self.outputStream = outputStream
-    outputBuffer = ContiguousArray<UInt8>(count: bufferSize, repeatedValue: 0)
+    outputBuffer = [UInt8](count: bufferSize, repeatedValue: 0)
     outputBufferOffset = 0
   }
 
@@ -43,7 +43,7 @@ public class BufferingOutputStream: OutputStream {
     close()
   }
 
-  public func write(buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws {
+  public func write(buffer: [UInt8], offset: Int, count: Int) throws {
     if count > outputBuffer.count {
       // If the amount of data to write is larger than the buffer, flush the buffer and write the
       // new data directly to the underlying stream. This is acceptable behavior since the purpose

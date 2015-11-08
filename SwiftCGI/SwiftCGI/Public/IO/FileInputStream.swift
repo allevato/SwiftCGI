@@ -58,7 +58,7 @@ public class FileInputStream: InputStream {
     }
   }
 
-  public func read(inout buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws -> Int {
+  public func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
     return buffer.withUnsafeMutableBufferPointer {
       (inout buffer: UnsafeMutableBufferPointer<UInt8>) in
       let pointer = buffer.baseAddress.advancedBy(offset)

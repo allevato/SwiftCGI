@@ -47,26 +47,26 @@ enum FCGIRecordBody {
   /// record is a raw byte array because a server could send the name-value pairs using multiple
   /// records, even split in the middle of a name or value, so they must all be concatenated before
   /// parsing them.
-  case Params(bytes: ContiguousArray<UInt8>)
+  case Params(bytes: [UInt8])
 
   /// Sent by the web server to send a stream of input to the application.
-  case Stdin(bytes: ContiguousArray<UInt8>)
+  case Stdin(bytes: [UInt8])
 
   /// Sent to the web server to send output back from the application.
-  case Stdout(bytes: ContiguousArray<UInt8>)
+  case Stdout(bytes: [UInt8])
 
   /// Sent to the web server to send error logs back from the application.
-  case Stderr(bytes: ContiguousArray<UInt8>)
+  case Stderr(bytes: [UInt8])
 
   /// Sent by the web server to send a stream of additional data to the application.
-  case Data(bytes: ContiguousArray<UInt8>)
+  case Data(bytes: [UInt8])
 
   /// Sent by the web server to query specific variables within the application. The application
   /// should respond with a `GetValuesResult` record.
-  case GetValues(bytes: ContiguousArray<UInt8>)
+  case GetValues(bytes: [UInt8])
 
   /// Sent to the web server to convey the result of a `GetValues` request.
-  case GetValuesResult(bytes: ContiguousArray<UInt8>)
+  case GetValuesResult(bytes: [UInt8])
 
   /// Sent to the web server when it receives a management record whose type it does not recognize.
   case UnknownType(type: Int8)
@@ -143,7 +143,7 @@ enum FCGIRecordBody {
     case .EndRequest(let appStatus, let protocolStatus):
       try outputStream.write(Int32(appStatus).bigEndian)
       try outputStream.write(protocolStatus.rawValue)
-      try outputStream.write(ContiguousArray<UInt8>(count: 3, repeatedValue: 0))
+      try outputStream.write([UInt8](count: 3, repeatedValue: 0))
     case .Stdout(let bytes):
       try outputStream.write(bytes)
     case .Stderr(let bytes):
@@ -152,7 +152,7 @@ enum FCGIRecordBody {
       try outputStream.write(bytes)
     case .UnknownType(let type):
       try outputStream.write(Int8(type))
-      try outputStream.write(ContiguousArray<UInt8>(count: 7, repeatedValue: 0))
+      try outputStream.write([UInt8](count: 7, repeatedValue: 0))
     default:
       fatalError("Records of type \(self) cannot be written from app to web server, only read")
     }

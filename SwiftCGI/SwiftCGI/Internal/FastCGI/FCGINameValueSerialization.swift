@@ -17,7 +17,7 @@
 ///
 /// - Parameter bytes: The byte array containing the serialized FCGI name/value pairs.
 /// - Returns: A dictionary with the deserialized name/value pairs.
-func FCGINameValueDictionaryFromBytes(bytes: ContiguousArray<UInt8>) -> [String: String] {
+func FCGINameValueDictionaryFromBytes(bytes: [UInt8]) -> [String: String] {
   var index = 0
   var dictionary = [String:String]()
 
@@ -39,8 +39,8 @@ func FCGINameValueDictionaryFromBytes(bytes: ContiguousArray<UInt8>) -> [String:
 ///
 /// - Parameter dictionary: A dictionary whose keys and values are strings.
 /// - Returns: A byte array containing the serialized FCGI name/value pairs.
-func FCGIBytesFromNameValueDictionary(dictionary: [String: String]) -> ContiguousArray<UInt8> {
-  var bytes = ContiguousArray<UInt8>()
+func FCGIBytesFromNameValueDictionary(dictionary: [String: String]) -> [UInt8] {
+  var bytes = [UInt8]()
   for (name, value) in dictionary {
     writeLength(&bytes, length: name.utf8.count)
     writeLength(&bytes, length: value.utf8.count)
@@ -57,7 +57,7 @@ func FCGIBytesFromNameValueDictionary(dictionary: [String: String]) -> Contiguou
 /// - Parameter index: The position in the array from which to read the length; this value will be
 ///   advanced the appropriate amount once the length has been read.
 /// - Returns: The length value read from the byte array.
-private func readLength(bytes: ContiguousArray<UInt8>, inout index: Int) -> Int {
+private func readLength(bytes: [UInt8], inout index: Int) -> Int {
   let firstByte = bytes[index++]
   if firstByte & 0x80 == 0 {
     return Int(firstByte)
@@ -78,7 +78,7 @@ private func readLength(bytes: ContiguousArray<UInt8>, inout index: Int) -> Int 
 ///   advanced the appropriate amount once the string has been read.
 /// - Returns: The string read from the byte array, or nil if there was a problem decoding the UTF-8
 ///   data.
-private func readString(bytes: ContiguousArray<UInt8>, length: Int, inout index: Int) -> String? {
+private func readString(bytes: [UInt8], length: Int, inout index: Int) -> String? {
   var chars = bytes[index..<(index + length)]
   chars.append(0)
   index += length
@@ -93,7 +93,7 @@ private func readString(bytes: ContiguousArray<UInt8>, length: Int, inout index:
 ///
 /// - Parameter bytes: The byte array to which the length should be written.
 /// - Parameter length: The length value to write to the byte array.
-private func writeLength(inout bytes: ContiguousArray<UInt8>, length: Int) {
+private func writeLength(inout bytes: [UInt8], length: Int) {
   if length > 127 {
     bytes.append(UInt8((length >> 24 & 0xFF) | 0x80))
     bytes.append(UInt8(length >> 16 & 0xFF))
@@ -109,7 +109,7 @@ private func writeLength(inout bytes: ContiguousArray<UInt8>, length: Int) {
 ///
 /// - Parameter bytes: The byte array to which the string should be written.
 /// - Parameter string: The string to be written to the byte array.
-private func writeString(inout bytes: ContiguousArray<UInt8>, string: String) {
+private func writeString(inout bytes: [UInt8], string: String) {
   for byte in string.utf8 {
     bytes.append(byte)
   }

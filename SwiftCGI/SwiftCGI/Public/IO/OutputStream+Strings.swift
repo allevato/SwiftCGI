@@ -37,7 +37,7 @@ public extension OutputStream {
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
   func write<Codec: UnicodeCodecType where Codec.CodeUnit == UInt8>(
     value: String, codec: Codec.Type, nullTerminated: Bool = false) throws {
-    var codeUnits = ContiguousArray<Codec.CodeUnit>()
+    var codeUnits = Array<Codec.CodeUnit>()
     for unicodeScalar in value.unicodeScalars {
       codec.encode(unicodeScalar) { codeUnit in
         codeUnits.append(codeUnit)

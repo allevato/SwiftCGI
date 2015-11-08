@@ -15,12 +15,12 @@
 import SwiftCGI
 
 
-/// A stream that lets its contents be set to a contiguous array of bytes for testing, simulating
-/// a file stream with those contents.
+/// A stream that lets its contents be set to an array of bytes for testing, simulating a file
+/// stream with those contents.
 class TestInputStream: InputStream {
 
   /// The array of bytes that will be read by the stream.
-  var testData = ContiguousArray<UInt8>() {
+  var testData = [UInt8]() {
     didSet {
       position = 0
     }
@@ -32,7 +32,7 @@ class TestInputStream: InputStream {
   /// Creates a new `TestInputStream`.
   init() {}
 
-  func read(inout buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws -> Int {
+  func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
     // If we're already at the end of the stream, bail out immediately.
     if position >= testData.count {
       throw IOError.EOF

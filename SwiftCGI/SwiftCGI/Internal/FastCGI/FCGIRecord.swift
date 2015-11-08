@@ -76,7 +76,7 @@ struct FCGIRecord {
 
     try body.write(outputStream)
     if paddingLength > 0 {
-      try outputStream.write(ContiguousArray<UInt8>(count: paddingLength, repeatedValue: 0))
+      try outputStream.write([UInt8](count: paddingLength, repeatedValue: 0))
     }
   }
 }

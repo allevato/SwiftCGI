@@ -34,7 +34,7 @@ public extension InputStream {
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
   func readString<Codec: UnicodeCodecType where Codec.CodeUnit == UInt8>(codec: Codec)
       throws -> String? {
-    var codeUnits = ContiguousArray<UInt8>()
+    var codeUnits = [UInt8]()
     var codeUnit = try readUInt8()
     while codeUnit != 0 {
       codeUnits.append(codeUnit)
@@ -79,7 +79,7 @@ public extension InputStream {
   /// - Parameter codec: The codec to use to decode the string.
   /// - Returns: The decoded string, or nil if the string was not properly encoded.
   private func decodeString<Codec: UnicodeCodecType where Codec.CodeUnit == UInt8>(
-      codeUnits: ContiguousArray<UInt8>, var codec: Codec) -> String? {
+      codeUnits: [UInt8], var codec: Codec) -> String? {
     var generator = codeUnits.generate()
     var decoded = ""
 

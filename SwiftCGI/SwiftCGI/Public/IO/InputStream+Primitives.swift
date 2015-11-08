@@ -76,7 +76,7 @@ public extension InputStream {
     return value
   }
 
-  /// Reads `count` bytes from the stream and returns them in a contiguous array.
+  /// Reads `count` bytes from the stream and returns them in an array.
   ///
   /// If it was not possible to read the given number of bytes (for example, the end of the stream
   /// was reached first), then the length of the returned array will be less than `count`. If the
@@ -89,11 +89,11 @@ public extension InputStream {
   /// the number requested.
   ///
   /// - Parameter count: The maximum number of bytes to read.
-  /// - Returns: A contiguous array containing the bytes that were read.
+  /// - Returns: An array containing the bytes that were read.
   /// - Throws: `IOError` if the operation failed for a reason other than reaching the end of the
   ///   stream.
-  public func readBytes(count: Int) throws -> ContiguousArray<UInt8> {
-    var buffer = ContiguousArray<UInt8>(count: count, repeatedValue: 0)
+  public func readBytes(count: Int) throws -> [UInt8] {
+    var buffer = [UInt8](count: count, repeatedValue: 0)
     let bytesRead = try read(&buffer, offset: 0, count: count)
     if bytesRead < count {
       buffer.replaceRange(bytesRead..<count, with: [])
@@ -108,7 +108,7 @@ public extension InputStream {
   /// - Throws: `IOError` if the operation would read past the end of the stream.
   private func read<Memory>(pointer: UnsafeMutablePointer<Memory>) throws {
     let count = sizeof(Memory)
-    var bytes = ContiguousArray<UInt8>(count: count, repeatedValue: 0)
+    var bytes = [UInt8](count: count, repeatedValue: 0)
     let bytesRead = try read(&bytes, offset: 0, count: count)
     if bytesRead < count {
       throw IOError.EOF

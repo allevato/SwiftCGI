@@ -15,19 +15,16 @@
 
 /// Defines basic output functions for writing data to a destination, such as a file.
 ///
-/// This protocol is modeled after similar interfaces from Java and .NET. It uses `ContiguousArray`
-/// for its storage instead of `Array` so that the unsafe pointer to the underlying memory can be
-/// easily accessed in implementations. (For example, streams for POSIX files can pass the pointer
-/// directly into the low-level file functions.)
+/// This protocol is modeled after similar interfaces from Java and .NET.
 public protocol OutputStream {
 
   /// Writes `count` bytes from the array `buffer` starting at `offset` to the stream.
   ///
-  /// - Parameter buffer: The contiguous array from which the data should be written.
+  /// - Parameter buffer: The array from which the data should be written.
   /// - Parameter offset: The byte offset in `buffer` from which to start reading data.
   /// - Parameter count: The maximum number of bytes to write to the stream.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func write(buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws
+  func write(buffer: [UInt8], offset: Int, count: Int) throws
 
   /// Seeks to a new position in the stream.
   ///

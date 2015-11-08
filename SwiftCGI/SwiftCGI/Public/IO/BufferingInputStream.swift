@@ -24,7 +24,7 @@ public class BufferingInputStream: InputStream {
   private let inputStream: InputStream
 
   /// The buffer that holds data read from the underlying stream.
-  private var inputBuffer: ContiguousArray<UInt8>
+  private var inputBuffer: [UInt8]
 
   /// The number of bytes in the input buffer that are actually filled with valid data.
   private var inputBufferCount: Int
@@ -37,7 +37,7 @@ public class BufferingInputStream: InputStream {
   public init(
       inputStream: InputStream, bufferSize: Int = BufferingInputStream.defaultBufferSize) {
     self.inputStream = inputStream
-    inputBuffer = ContiguousArray<UInt8>(count: bufferSize, repeatedValue: 0)
+    inputBuffer = [UInt8](count: bufferSize, repeatedValue: 0)
     inputBufferCount = 0
     inputBufferOffset = 0
   }
@@ -46,7 +46,7 @@ public class BufferingInputStream: InputStream {
     close()
   }
 
-  public func read(inout buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws -> Int {
+  public func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
     if count == 0 {
       return 0
     }
@@ -90,7 +90,7 @@ public class BufferingInputStream: InputStream {
 
   /// Reads data at most once from the underlying stream, filling the buffer if necessary.
   ///
-  /// - Parameter buffer: The contiguous array into which the data should be written.
+  /// - Parameter buffer: The array into which the data should be written.
   /// - Parameter offset: The byte offset in `buffer` into which to start writing data.
   /// - Parameter count: The maximum number of bytes to read from the stream.
   /// - Returns: The number of bytes that were actually read. This can be less than the requested
@@ -98,7 +98,7 @@ public class BufferingInputStream: InputStream {
   ///   reached.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
   private func readFromUnderlyingStream(
-      inout buffer: ContiguousArray<UInt8>, offset: Int, count: Int) throws -> Int {
+      inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
     var available = inputBufferCount - inputBufferOffset
     if available == 0 {
       // If there is nothing currently in the buffer and the requested count is at least as large as

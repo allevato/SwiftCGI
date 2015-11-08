@@ -68,9 +68,9 @@ public extension OutputStream {
   ///
   /// This method is equivalent to `write(buffer, offset: 0, count: buffer.count)`.
   ///
-  /// - Parameter buffer: The contiguous array from which the data should be written.
+  /// - Parameter buffer: The array from which the data should be written.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func write(buffer: ContiguousArray<UInt8>) throws {
+  func write(buffer: [UInt8]) throws {
     try write(buffer, offset: 0, count: buffer.count)
   }
 
@@ -81,7 +81,7 @@ public extension OutputStream {
   /// - Throws: `IOError` if the operation would read past the end of the stream.
   private func write<Memory>(pointer: UnsafeMutablePointer<Memory>) throws {
     let count = sizeof(Memory)
-    var bytes = ContiguousArray<UInt8>(count: count, repeatedValue: 0)
+    var bytes = [UInt8](count: count, repeatedValue: 0)
     bytes.withUnsafeMutableBufferPointer {
       (inout byteBufferPtr: UnsafeMutableBufferPointer<UInt8>) in
       UnsafeMutablePointer<Memory>(byteBufferPtr.baseAddress).assignFrom(pointer, count: 1)
