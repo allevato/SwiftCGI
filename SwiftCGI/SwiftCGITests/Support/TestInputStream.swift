@@ -33,6 +33,10 @@ class TestInputStream: InputStream {
   init() {}
 
   func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
+    if count == 0 {
+      return 0
+    }
+
     // If we're already at the end of the stream, bail out immediately.
     if position >= testData.count {
       throw IOError.EOF

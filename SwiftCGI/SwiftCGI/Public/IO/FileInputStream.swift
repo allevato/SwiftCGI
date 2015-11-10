@@ -59,6 +59,10 @@ public class FileInputStream: InputStream {
   }
 
   public func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
+    if count == 0 {
+      return 0
+    }
+
     return buffer.withUnsafeMutableBufferPointer {
       (inout buffer: UnsafeMutableBufferPointer<UInt8>) in
       let pointer = buffer.baseAddress.advancedBy(offset)
