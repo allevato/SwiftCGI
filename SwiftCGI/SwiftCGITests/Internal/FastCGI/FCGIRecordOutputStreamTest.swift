@@ -97,6 +97,7 @@ class FCGIRecordOutputStreamTest: XCTestCase {
       try outputStream.write([ 0xBE, 0xEF ])
       try outputStream.write([ 0xFA, 0xCE ])
       outputStream.flush()
+      try recordStream.terminate()
     }
 
     XCTAssertEqual(underlyingStream.testData, [
@@ -117,7 +118,9 @@ class FCGIRecordOutputStreamTest: XCTestCase {
   }
 
   func testFlush_shouldWriteEmptyRecord() {
-    outputStream.flush()
+    XCTAssertNoThrow {
+      try outputStream.terminate()
+    }
 
     XCTAssertEqual(underlyingStream.testData, [
       0x01, // version

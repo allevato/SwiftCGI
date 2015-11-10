@@ -30,6 +30,9 @@
 		AA2509C01BEFD12D00E94307 /* FCGIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509BF1BEFD12D00E94307 /* FCGIError.swift */; };
 		AA2509C11BEFD12D00E94307 /* FCGIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509BF1BEFD12D00E94307 /* FCGIError.swift */; };
 		AA2509C31BEFD6F300E94307 /* FCGIRecordInputStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509C21BEFD6F300E94307 /* FCGIRecordInputStreamTest.swift */; };
+		AA2509C51BF00D9100E94307 /* FCGIRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509C41BF00D9100E94307 /* FCGIRequestHandler.swift */; };
+		AA2509C61BF00D9100E94307 /* FCGIRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509C41BF00D9100E94307 /* FCGIRequestHandler.swift */; };
+		AA2509C81BF16BD400E94307 /* FCGIRequestHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509C71BF16BD400E94307 /* FCGIRequestHandlerTest.swift */; };
 		AA27D2941BD9E65D00028A42 /* BufferingInputStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */; };
 		AA6230EC1BD4483A0094B96C /* InputStream+StringsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */; };
 		AA6230EE1BD5CA150094B96C /* BufferingOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */; };
@@ -44,7 +47,7 @@
 		AAA06ED81BBF534F00620804 /* IOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06ED21BBF534F00620804 /* IOError.swift */; };
 		AAA06ED91BBF534F00620804 /* InputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06ED31BBF534F00620804 /* InputStream.swift */; };
 		AAA06EDA1BBF534F00620804 /* InputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06ED31BBF534F00620804 /* InputStream.swift */; };
-		AAA06EE11BC3800200620804 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EE01BC3800200620804 /* XCTestCase+Extensions.swift */; };
+		AAA06EE11BC3800200620804 /* XCTestErrorAssertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EE01BC3800200620804 /* XCTestErrorAssertions.swift */; };
 		AAA06EE31BC6016100620804 /* InputStream+Primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EE21BC6016100620804 /* InputStream+Primitives.swift */; };
 		AAA06EE41BC6376C00620804 /* InputStream+Primitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EE21BC6016100620804 /* InputStream+Primitives.swift */; };
 		AAA06EE61BC6A67300620804 /* SeekOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06EE51BC6A67300620804 /* SeekOrigin.swift */; };
@@ -132,6 +135,8 @@
 		AA2509BC1BEFA32F00E94307 /* FCGIRecordInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGIRecordInputStream.swift; sourceTree = "<group>"; };
 		AA2509BF1BEFD12D00E94307 /* FCGIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGIError.swift; sourceTree = "<group>"; };
 		AA2509C21BEFD6F300E94307 /* FCGIRecordInputStreamTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGIRecordInputStreamTest.swift; sourceTree = "<group>"; };
+		AA2509C41BF00D9100E94307 /* FCGIRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGIRequestHandler.swift; sourceTree = "<group>"; };
+		AA2509C71BF16BD400E94307 /* FCGIRequestHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCGIRequestHandlerTest.swift; sourceTree = "<group>"; };
 		AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingInputStreamTest.swift; sourceTree = "<group>"; };
 		AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+StringsTest.swift"; sourceTree = "<group>"; };
 		AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingOutputStream.swift; sourceTree = "<group>"; };
@@ -141,7 +146,7 @@
 		AAA06ECD1BBE25BC00620804 /* String+URLEncodingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+URLEncodingTest.swift"; sourceTree = "<group>"; };
 		AAA06ED21BBF534F00620804 /* IOError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOError.swift; sourceTree = "<group>"; };
 		AAA06ED31BBF534F00620804 /* InputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputStream.swift; sourceTree = "<group>"; };
-		AAA06EE01BC3800200620804 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		AAA06EE01BC3800200620804 /* XCTestErrorAssertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestErrorAssertions.swift; sourceTree = "<group>"; };
 		AAA06EE21BC6016100620804 /* InputStream+Primitives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+Primitives.swift"; sourceTree = "<group>"; };
 		AAA06EE51BC6A67300620804 /* SeekOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekOrigin.swift; sourceTree = "<group>"; };
 		AAA06EE91BC75F9900620804 /* InputStream+PrimitivesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+PrimitivesTest.swift"; sourceTree = "<group>"; };
@@ -215,6 +220,7 @@
 				AA2509A01BE6E2EF00E94307 /* FCGIRecordBody.swift */,
 				AA2509BC1BEFA32F00E94307 /* FCGIRecordInputStream.swift */,
 				AA2509B71BEE73A100E94307 /* FCGIRecordOutputStream.swift */,
+				AA2509C41BF00D9100E94307 /* FCGIRequestHandler.swift */,
 			);
 			path = FastCGI;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 				AA2509C21BEFD6F300E94307 /* FCGIRecordInputStreamTest.swift */,
 				AA2509BA1BEED16400E94307 /* FCGIRecordOutputStreamTest.swift */,
 				AA2509AF1BE85B1C00E94307 /* FCGIRecordTest.swift */,
+				AA2509C71BF16BD400E94307 /* FCGIRequestHandlerTest.swift */,
 			);
 			path = FastCGI;
 			sourceTree = "<group>";
@@ -293,7 +300,7 @@
 			children = (
 				AAA06F371BCC84ED00620804 /* TestInputStream.swift */,
 				AAA06F541BCF47A300620804 /* TestOutputStream.swift */,
-				AAA06EE01BC3800200620804 /* XCTestCase+Extensions.swift */,
+				AAA06EE01BC3800200620804 /* XCTestErrorAssertions.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -592,6 +599,7 @@
 				AAA06F261BCAF89700620804 /* HTTPRequest.swift in Sources */,
 				AAA06F641BD2A49200620804 /* CGIServer.swift in Sources */,
 				AAA06EE61BC6A67300620804 /* SeekOrigin.swift in Sources */,
+				AA2509C51BF00D9100E94307 /* FCGIRequestHandler.swift in Sources */,
 				AAA06F1B1BC9E64E00620804 /* HTTPMethod.swift in Sources */,
 				AA2509B21BE86FB000E94307 /* FCGINameValueSerialization.swift in Sources */,
 				AAA06EE31BC6016100620804 /* InputStream+Primitives.swift in Sources */,
@@ -626,7 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAA06F221BCAC5B700620804 /* HTTPHeaders.swift in Sources */,
-				AAA06EE11BC3800200620804 /* XCTestCase+Extensions.swift in Sources */,
+				AAA06EE11BC3800200620804 /* XCTestErrorAssertions.swift in Sources */,
 				AAA06F491BCE9E6E00620804 /* FileOutputStream.swift in Sources */,
 				AAA06F5B1BD0948400620804 /* OutputStream+Strings.swift in Sources */,
 				AA6230EF1BD5CA150094B96C /* BufferingOutputStream.swift in Sources */,
@@ -651,12 +659,14 @@
 				AAA06F1F1BCABF2600620804 /* HTTPMethodTest.swift in Sources */,
 				AAA06EF31BC77B4C00620804 /* OutputStream+PrimitivesTest.swift in Sources */,
 				AAA06EF71BC8AA9B00620804 /* Thread.swift in Sources */,
+				AA2509C61BF00D9100E94307 /* FCGIRequestHandler.swift in Sources */,
 				AA2509C31BEFD6F300E94307 /* FCGIRecordInputStreamTest.swift in Sources */,
 				AA2509A81BE7246400E94307 /* FCGIBeginRequestRole.swift in Sources */,
 				AA2509B31BE86FB000E94307 /* FCGINameValueSerialization.swift in Sources */,
 				AAA06F401BCCA20700620804 /* Server.swift in Sources */,
 				AA27D2941BD9E65D00028A42 /* BufferingInputStreamTest.swift in Sources */,
 				AAA06F3D1BCC9E5200620804 /* ServerProtocol.swift in Sources */,
+				AA2509C81BF16BD400E94307 /* FCGIRequestHandlerTest.swift in Sources */,
 				AA2509A51BE723F100E94307 /* FCGIBeginRequestFlags.swift in Sources */,
 				AAA06F0D1BC8C58100620804 /* HTTPStatus.swift in Sources */,
 				AAA06F531BCF3ACF00620804 /* WriteNotifyingOutputStreamTest.swift in Sources */,

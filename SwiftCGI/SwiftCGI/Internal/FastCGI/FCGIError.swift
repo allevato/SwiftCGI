@@ -19,4 +19,7 @@ enum FCGIError: ErrorType {
   /// A record was read that had a type other than the type that was expected (for example, an input
   /// stream reading `Stdin` records receives a `Data` record).
   case UnexpectedRecordType
+
+  /// A record for a request with an unexpected ID was read by a request handler.
+  case UnexpectedRequestID
 }

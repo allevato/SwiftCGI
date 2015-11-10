@@ -48,6 +48,16 @@ class FCGIRecordOutputStream: OutputStream {
     self.bodyType = bodyType
   }
 
+  /// Notifies the web server that all data planned to be written has been written, by sending a
+  /// zero-length record. The behavior of writing additional data after terminating the stream is
+  /// undefined.
+  ///
+  /// - Throws: If an error occurs when writing the terminating record.
+  func terminate() throws {
+    let record = recordWithBytes([])
+    try record.write(outputStream)
+  }
+
   func write(buffer: [UInt8], offset: Int, count: Int) throws {
     let subsequence = buffer[offset..<(offset + count)]
     let record = recordWithBytes(Array(subsequence))
@@ -60,13 +70,6 @@ class FCGIRecordOutputStream: OutputStream {
   }
 
   func flush() {
-    let record = recordWithBytes([])
-
-    // Ignore errors when flushing.
-    do {
-      try record.write(outputStream)
-    } catch {}
-
     outputStream.flush()
   }
 
