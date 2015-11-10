@@ -95,8 +95,27 @@ enum FCGIRecordBody {
       self = .Data(bytes: try inputStream.readBytes(contentLength))
     case FCGI_GET_VALUES:
       self = .GetValues(bytes: try inputStream.readBytes(contentLength))
+
+    // The following body types aren't read from the web server in normal operation, but we provide
+    // their serialization for testing purposes.
+    case FCGI_END_REQUEST:
+      let appStatus = Int(try inputStream.readInt32().bigEndian)
+      let protocolStatus = FCGIProtocolStatus(rawValue: try inputStream.readInt8())!
+      _ = try inputStream.readBytes(3)
+      self = .EndRequest(appStatus: appStatus, protocolStatus: protocolStatus)
+    case FCGI_STDOUT:
+      self = .Stdout(bytes: try inputStream.readBytes(contentLength))
+    case FCGI_STDERR:
+      self = .Stderr(bytes: try inputStream.readBytes(contentLength))
+    case FCGI_GET_VALUES_RESULT:
+      self = .GetValuesResult(bytes: try inputStream.readBytes(contentLength))
+    case FCGI_UNKNOWN_TYPE:
+      let type = try inputStream.readInt8()
+      _ = try inputStream.readBytes(7)
+      self = .UnknownType(type: type)
+
     default:
-      fatalError("Record type \(rawType) cannot be read from the web server, only written")
+      throw FCGIError.UnexpectedRecordType
     }
   }
 
