@@ -56,7 +56,7 @@ class CGIServerTest: XCTestCase {
       XCTAssertEqual(request.contentType, "foo/bar")
       XCTAssertEqual(request.headers["Foo"], "bar")
 
-      self.XCTAssertNoThrow {
+      XCTAssertNoThrow {
         let bytes = try request.contentStream.readBytes(3)
         XCTAssertEqual(bytes, [0x41, 0x42, 0x43])
       }
@@ -66,7 +66,7 @@ class CGIServerTest: XCTestCase {
   func testListen_whenWritingToResponse_writesToOutputStream() {
     let dataToWrite: [UInt8] = [0x41, 0x42, 0x43]
     server.listen { request, response in
-      self.XCTAssertNoThrow {
+      XCTAssertNoThrow {
         try response.contentStream.write(dataToWrite)
       }
     }
