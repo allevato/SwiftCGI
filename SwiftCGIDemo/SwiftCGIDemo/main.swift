@@ -17,6 +17,15 @@ import SwiftCGI
 
 let server = Server()
 server.listen { request, response in
+  // Read the request body.
+  let requestBody: String
+  do {
+    requestBody = try request.contentStream.readString() ?? ""
+  } catch {
+    requestBody = ""
+  }
+
+  // Write the response content.
   let responseStream = response.contentStream
   do {
     try responseStream.write("Request headers:\n")
@@ -37,9 +46,7 @@ server.listen { request, response in
 
     try responseStream.write("Request body:\n")
     try responseStream.write("-------------\n")
-    if let requestBody = try request.contentStream.readString() {
-      try responseStream.write(requestBody)
-    }
+    try responseStream.write(requestBody)
   } catch {
     fatalError("Failed to write output to the response stream.")
   }

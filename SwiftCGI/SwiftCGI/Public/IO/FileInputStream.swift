@@ -63,11 +63,15 @@ public class FileInputStream: InputStream {
       return 0
     }
 
-    return buffer.withUnsafeMutableBufferPointer {
+    return try buffer.withUnsafeMutableBufferPointer {
       (inout buffer: UnsafeMutableBufferPointer<UInt8>) in
       let pointer = buffer.baseAddress.advancedBy(offset)
-      // TODO: Detect errors other than EOF and throw them.
-      return Darwin.read(fileDescriptor, pointer, count)
+      let bytesRead = Darwin.read(fileDescriptor, pointer, count)
+      if bytesRead == 0 {
+        throw IOError.EOF
+      }
+      // TODO: Handle errors other than EOF.
+      return bytesRead
     }
   }
 
