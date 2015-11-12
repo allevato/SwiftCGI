@@ -31,11 +31,11 @@ import Darwin
 /// allowing the application to terminate. The handler is called on the same thread as the rest of
 /// the application.
 ///
-/// If running as a FastCGI process, the `listen` method may be called multiple times on concurrent
-/// threads to simultaneously handle multiple requests. If there are no requests ready to be
-/// handled, the `listen` method blocks until there is an incoming request. In this situation,
-/// `listen` never returns. When running in FastCGI mode, request handlers must take care to
-/// synchronize access to shared data.
+/// If running as a FastCGI process, the `listen` method may start multiple threads to
+/// simultaneously handle multiple requests. If there are no requests ready to be handled, the
+/// `listen` method blocks until there is an incoming request. In this situation, `listen` never
+/// returns (unless the web server closes the socket). When running in FastCGI mode, request
+/// handlers must take care to synchronize access to shared data.
 public class Server {
 
   /// The concrete server implementation.
@@ -61,8 +61,7 @@ public class Server {
     if Server.isCGI() {
       impl = CGIServer()
     } else {
-      // TODO: Implement FastCGI.
-      fatalError("FastCGI not yet implemented.")
+      impl = FCGIServer()
     }
   }
 
