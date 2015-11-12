@@ -39,6 +39,9 @@ class FCGIRecordInputStream: InputStream {
   /// The index into the buffer at which the next data will be read.
   private var inputBufferOffset: Int
 
+  /// Indicates whether the final empty record denoting the end of the stream has been read.
+  private var endOfStreamReached = false
+
   /// Creates an input stream that reads FastCGI records from another input stream with the given
   /// expected body type.
   ///
@@ -54,6 +57,10 @@ class FCGIRecordInputStream: InputStream {
   func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
     if count == 0 {
       return 0
+    }
+
+    if endOfStreamReached {
+      throw IOError.EOF
     }
 
     // Repeatedly read from the stream until we've gotten the requested number of bytes or reached
@@ -110,11 +117,6 @@ class FCGIRecordInputStream: InputStream {
       inputBuffer = try readNextRecord()
       inputBufferOffset = 0
       available = inputBuffer.count
-
-      // The end of the stream is denoted by a final record with no content.
-      if inputBuffer.count == 0 {
-        throw IOError.EOF
-      }
     }
 
     let countToCopy = (available < count) ? available : count
@@ -141,6 +143,12 @@ class FCGIRecordInputStream: InputStream {
       buffer = bytes
     default:
       throw FCGIError.UnexpectedRecordType
+    }
+
+    // The end of the stream is denoted by a final record with no content.
+    endOfStreamReached = (buffer.count == 0)
+    if endOfStreamReached {
+      throw IOError.EOF
     }
 
     return buffer

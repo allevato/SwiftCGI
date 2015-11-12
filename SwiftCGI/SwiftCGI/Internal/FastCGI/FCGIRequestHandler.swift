@@ -94,33 +94,12 @@ class FCGIRequestHandler {
     // Invoke the user's handler.
     handler(request, response)
 
-    // Exhaust any remaining Stdin records and flush the output records.
-    try drainInputStream(bufferingInputStream)
+    // Flush any remaining buffered output records.
     bufferingOutputStream.flush()
     try recordOutputStream.terminate()
 
     // Notify the web server that we've finished processing the request.
     try endRequest()
-  }
-
-  /// Reads from the given input stream until the end of the stream is reached.
-  ///
-  /// This method is used to exhaust all of the `STDIN` records from the connection before closing
-  /// it.
-  ///
-  /// - Parameter inputStream: The input stream to be drained.
-  /// - Throws: Any error encountered other than `IOError.EOF`.
-  private func drainInputStream(inputStream: InputStream) throws {
-    var buffer = [UInt8](count: 16384, repeatedValue: 0)
-    while true {
-      do {
-        try inputStream.read(&buffer, offset: 0, count: buffer.count)
-      } catch IOError.EOF {
-        return
-      } catch let e {
-        throw e
-      }
-    }
   }
 
   /// Reads the next FastCGI record from the socket.
