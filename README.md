@@ -49,29 +49,29 @@ instructions._
 ### Usage as a CGI process
 1. Edit the Apache config file:
 
-       $ sudo vi /etc/apache2/httpd.conf
+        $ sudo vi /etc/apache2/httpd.conf
 
 2. Find the `LoadModule` line for `cgi_module`, and uncomment it if necessary:
 
-       LoadModule cgi_module libexec/apache2/mod_cgi.so
+        LoadModule cgi_module libexec/apache2/mod_cgi.so
 
 3. Save your changes.
 4. Build an executable using SwiftCGI and copy it into the location where Apache
    on OS X looks for CGI executables. By default, this directory is:
 
-       /Library/WebServer/CGI-Executables
+        /Library/WebServer/CGI-Executables
 
    If you are using SwiftCGI as a framework instead of compiling the sources
    directly into your application, copy the framework into this location as
    well.
 5. Restart Apache:
 
-       $ sudo apachectl restart
+        $ sudo apachectl restart
 
 6. Try the application in your web browser or using `curl`. For example, if your
    application is `SwiftCGIDemo`, use the following URL:
 
-       http://localhost/cgi-bin/SwiftCGIDemo
+        http://localhost/cgi-bin/SwiftCGIDemo
 
    You can also add additional path information or query parameters to this URL
    and they will be processed as expected by a CGI application.
@@ -82,48 +82,48 @@ file extension (`.fcgi`). For more advanced configurations, consult your web ser
 
 1. Build `mod_fastcgi`:
 
-       $ brew install mod_fastcgi
+        $ brew install mod_fastcgi
 
    Verify that the module was installed; in my configuration, the binary was in
 
-       /usr/local/Cellar/mod_fastcgi/2.4.6/libexec/mod_fastcgi.so
+        /usr/local/Cellar/mod_fastcgi/2.4.6/libexec/mod_fastcgi.so
 
    (The version number or location might be different on your system.)
 
 2. Edit the Apache config file:
 
-       $ sudo vi /etc/apache2/httpd.conf
+        $ sudo vi /etc/apache2/httpd.conf
 
 3. In the section containing the `LoadModule` lines, add one for `mod_fastcgi` (adjusting the path
    if necessary):
 
-       LoadModule fastcgi_module /usr/local/Cellar/mod_fastcgi/2.4.6/libexec/mod_fastcgi.so
+        LoadModule fastcgi_module /usr/local/Cellar/mod_fastcgi/2.4.6/libexec/mod_fastcgi.so
 
 4. At the bottom of this configuration file, add a section for the FastCGI module:
 
-       <IfModule mod_fastcgi.c>
-       FastCgiIpcDir /tmp/fcgi_ipc/
-       AddHandler fastcgi-script .fcgi
-       </IfModule>
+        <IfModule mod_fastcgi.c>
+        FastCgiIpcDir /tmp/fcgi_ipc/
+        AddHandler fastcgi-script .fcgi
+        </IfModule>
 
 5. Save your changes.
 6. Build an executable using SwiftCGI and copy it into the location where Apache
    on OS X looks for CGI executables, adding the `.fcgi` extension so that it is matched by the
    handler above. By default, this directory is:
 
-       /Library/WebServer/CGI-Executables
+        /Library/WebServer/CGI-Executables
 
    If you are using SwiftCGI as a framework instead of compiling the sources
    directly into your application, copy the framework into this location as
    well.
 7. Restart Apache:
 
-       $ sudo apachectl restart
+        $ sudo apachectl restart
 
 8. Try the application in your web browser or using `curl`. For example, if your
    application is `SwiftCGIDemo`, use the following URL:
 
-       http://localhost/cgi-bin/SwiftCGIDemo.fcgi
+        http://localhost/cgi-bin/SwiftCGIDemo.fcgi
 
    You can also add additional path information or query parameters to this URL
    and they will be processed as expected by a CGI application.
