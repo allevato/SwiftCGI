@@ -115,7 +115,7 @@ class FCGIRequestHandlerTest: XCTestCase {
   /// - Parameter body: The body of the record.
   /// - Throws: `IOError` if there was an error writing the record to the test stream.
   private func addTestRecord(requestID: Int, body: FCGIRecordBody) {
-    let record = FCGIRecord(requestID: requestID, body: body, paddingLength: 0)
+    let record = FCGIRecord(requestID: requestID, body: body)
     XCTAssertNoThrow {
       try record.write(recordStream)
     }

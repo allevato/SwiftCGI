@@ -174,7 +174,7 @@ class FCGIRequestHandler {
   /// processing the request and closes the connection if necessary.
   private func endRequest() throws {
     let endRecordBody = FCGIRecordBody.EndRequest(appStatus: 0, protocolStatus: .RequestComplete)
-    let endRecord = FCGIRecord(requestID: requestID, body: endRecordBody, paddingLength: 0)
+    let endRecord = FCGIRecord(requestID: requestID, body: endRecordBody)
     try endRecord.write(outputStream)
 
     if closeConnectionWhenDone {

@@ -20,12 +20,11 @@ import XCTest
 class FCGIRecordTest: XCTestCase {
 
   func testInit_withPropertyParameters() {
-    let record = FCGIRecord(requestID: 5, body: .UnknownType(type: 3), paddingLength: 2)
+    let record = FCGIRecord(requestID: 5, body: .Params(bytes: [ 1, 2, 3 ]))
     XCTAssertEqual(record.requestID, 5)
-    XCTAssertEqual(record.paddingLength, 2)
     switch record.body {
-    case .UnknownType(let type):
-      XCTAssertEqual(type, 3)
+    case .Params(let bytes):
+      XCTAssertEqual(bytes, [ 1, 2, 3 ])
     default:
       XCTFail("Expected body to be UnknownType but was \(record.body)")
     }
@@ -47,7 +46,6 @@ class FCGIRecordTest: XCTestCase {
     XCTAssertNoThrow {
       let record = try FCGIRecord(inputStream: stream)
       XCTAssertEqual(record.requestID, 5)
-      XCTAssertEqual(record.paddingLength, 2)
       switch record.body {
       case .BeginRequest(let role, let flags):
         XCTAssertEqual(role, FCGIBeginRequestRole.Authorizer)
@@ -59,7 +57,7 @@ class FCGIRecordTest: XCTestCase {
   }
 
   func testWrite() {
-    let record = FCGIRecord(requestID: 5, body: .UnknownType(type: 3), paddingLength: 2)
+    let record = FCGIRecord(requestID: 5, body: .Params(bytes: [ 1, 2, 3 ]))
     let stream = TestOutputStream()
 
     XCTAssertNoThrow {
@@ -67,13 +65,13 @@ class FCGIRecordTest: XCTestCase {
 
       XCTAssertEqual(stream.testData, [
         0x01, // version
-        0x0B, // raw type
+        0x04, // raw type
         0x00, 0x05, // request ID
-        0x00, 0x08, // content length
-        0x02, // padding length
+        0x00, 0x03, // content length
+        0x05, // padding length
         0x00, // reserved byte
-        0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, // body content
-        0x00, 0x00 // padding
+        0x01, 0x02, 0x03, // body content
+        0x00, 0x00, 0x00, 0x00, 0x00, // padding
       ])
     }
   }

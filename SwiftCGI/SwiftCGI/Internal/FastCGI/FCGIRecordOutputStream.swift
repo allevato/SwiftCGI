@@ -89,6 +89,6 @@ class FCGIRecordOutputStream: OutputStream {
     case .Stdout: recordBody = .Stdout(bytes: bytes)
     case .Stderr: recordBody = .Stderr(bytes: bytes)
     }
-    return FCGIRecord(requestID: requestID, body: recordBody, paddingLength: 0)
+    return FCGIRecord(requestID: requestID, body: recordBody)
   }
 }

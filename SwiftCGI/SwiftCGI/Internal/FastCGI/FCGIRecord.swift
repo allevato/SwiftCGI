@@ -17,6 +17,11 @@
 private let FCGI_VERSION = 1
 
 
+/// The default alignment to use when creating new FCGI records, which will be used to calculate the
+/// amount of padding to add to the record.
+private let FCGIRecordByteAlignment = 8
+
+
 /// A FastCGI record received by or sent to the web server as part of the request/response process.
 struct FCGIRecord {
 
@@ -31,7 +36,7 @@ struct FCGIRecord {
   let body: FCGIRecordBody
 
   /// The amount of padding, in bytes, following the record body.
-  let paddingLength: Int
+  private let paddingLength: Int
 
   /// Creates a new FastCGI record read from the given input stream.
   ///
@@ -54,12 +59,17 @@ struct FCGIRecord {
   ///
   /// - Parameter requestID: The numeric ID of the request.
   /// - Parameter body: The record's body.
-  /// - Parameter paddingLength: The amount of padding to write after the body content.
-  init(requestID: Int, body: FCGIRecordBody, paddingLength: Int) {
+  init(requestID: Int, body: FCGIRecordBody) {
     version = FCGI_VERSION
     self.requestID = requestID
     self.body = body
-    self.paddingLength = paddingLength
+
+    let unalignedCount = body.contentLength % FCGIRecordByteAlignment
+    if unalignedCount > 0 {
+      paddingLength = FCGIRecordByteAlignment - unalignedCount
+    } else {
+      paddingLength = 0
+    }
   }
 
   /// Writes the record to the given output stream.

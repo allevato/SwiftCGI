@@ -120,7 +120,7 @@ class FCGIRecordInputStreamTest: XCTestCase {
   ///
   /// - Throws: `IOError` if there was an error writing the record to the test stream.
   private func addTestRecord(body: FCGIRecordBody) throws {
-    let record = FCGIRecord(requestID: 1, body: body, paddingLength: 0)
+    let record = FCGIRecord(requestID: 1, body: body)
     try record.write(recordStream)
   }
 }
