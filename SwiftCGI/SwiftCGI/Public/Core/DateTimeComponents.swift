@@ -82,6 +82,21 @@ public struct DateTimeComponents: Equatable, Hashable {
   /// The millisecond on which the date/time falls (0-999).
   public var millisecond: Int
 
+  /// The C `tm` value containing the components. Due to limitations in the C struct, millisecond
+  /// information is not conveyed here.
+  var cComponents: tm {
+    var tmcomps = tm()
+    tmcomps.tm_year = Int32(year - DateTimeComponentsCTMYearBase)
+    tmcomps.tm_mon = Int32(month.rawValue)
+    tmcomps.tm_mday = Int32(dayOfMonth)
+    tmcomps.tm_yday = Int32(dayOfYear)
+    tmcomps.tm_wday = Int32(dayOfWeek.rawValue)
+    tmcomps.tm_hour = Int32(hour)
+    tmcomps.tm_min = Int32(minute)
+    tmcomps.tm_sec = Int32(second)
+    return tmcomps
+  }
+
   /// Creates a new value corresponding to a date/time of zero milliseconds since midnight on
   /// January 1, 1970 UTC. The purpose of this initializer is to quickly create a value with
   /// reasonable defaults that can be mutated and then converted back into a `DateTime`.
