@@ -42,6 +42,23 @@ public struct DateTime: Hashable, Strideable {
     self.millisecondsSince1970 = millisecondsSince1970
   }
 
+  /// Creates a new value representing the date and time with the given components.
+  ///
+  /// - Parameter components: The `DateTimeComponents` to use to create the new value.
+  public init(components: DateTimeComponents) {
+    var tmcomps = tm()
+    tmcomps.tm_year = Int32(components.year - DateTimeComponentsCTMYearBase)
+    tmcomps.tm_mon = Int32(components.month.rawValue)
+    tmcomps.tm_mday = Int32(components.dayOfMonth)
+    tmcomps.tm_yday = Int32(components.dayOfYear)
+    tmcomps.tm_wday = Int32(components.dayOfWeek.rawValue)
+    tmcomps.tm_hour = Int32(components.hour)
+    tmcomps.tm_min = Int32(components.minute)
+    tmcomps.tm_sec = Int32(components.second)
+    let seconds = timegm(&tmcomps)
+    self.init(millisecondsSince1970: Int64(seconds) * 1000 + components.millisecond)
+  }
+
   /// Creates a new value representing the date and time of the given POSIX `timeval`.
   ///
   /// - Parameter tv: The `timeval` from which to determine the date and time.
