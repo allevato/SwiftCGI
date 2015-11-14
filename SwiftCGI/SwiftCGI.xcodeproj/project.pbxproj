@@ -44,6 +44,10 @@
 		AA2509D61BF5601A00E94307 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509D41BF5601A00E94307 /* Hasher.swift */; };
 		AA2509D81BF5770D00E94307 /* HasherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509D71BF5770D00E94307 /* HasherTest.swift */; };
 		AA2509DA1BF67EC900E94307 /* DateTimeComponentsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509D91BF67EC900E94307 /* DateTimeComponentsTest.swift */; };
+		AA2509DC1BF6BA8F00E94307 /* RecursiveLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509DB1BF6BA8F00E94307 /* RecursiveLock.swift */; };
+		AA2509DD1BF6BA8F00E94307 /* RecursiveLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509DB1BF6BA8F00E94307 /* RecursiveLock.swift */; };
+		AA2509DF1BF6BA9D00E94307 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509DE1BF6BA9D00E94307 /* Condition.swift */; };
+		AA2509E01BF6BA9D00E94307 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2509DE1BF6BA9D00E94307 /* Condition.swift */; };
 		AA27D2941BD9E65D00028A42 /* BufferingInputStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */; };
 		AA6230EC1BD4483A0094B96C /* InputStream+StringsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */; };
 		AA6230EE1BD5CA150094B96C /* BufferingOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */; };
@@ -155,6 +159,8 @@
 		AA2509D41BF5601A00E94307 /* Hasher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hasher.swift; sourceTree = "<group>"; };
 		AA2509D71BF5770D00E94307 /* HasherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasherTest.swift; sourceTree = "<group>"; };
 		AA2509D91BF67EC900E94307 /* DateTimeComponentsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeComponentsTest.swift; sourceTree = "<group>"; };
+		AA2509DB1BF6BA8F00E94307 /* RecursiveLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecursiveLock.swift; sourceTree = "<group>"; };
+		AA2509DE1BF6BA9D00E94307 /* Condition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 		AA27D2931BD9E65D00028A42 /* BufferingInputStreamTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingInputStreamTest.swift; sourceTree = "<group>"; };
 		AA6230EB1BD4483A0094B96C /* InputStream+StringsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+StringsTest.swift"; sourceTree = "<group>"; };
 		AA6230ED1BD5CA150094B96C /* BufferingOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferingOutputStream.swift; sourceTree = "<group>"; };
@@ -345,6 +351,8 @@
 		AAA06EF41BC8AA8C00620804 /* Concurrency */ = {
 			isa = PBXGroup;
 			children = (
+				AA2509DE1BF6BA9D00E94307 /* Condition.swift */,
+				AA2509DB1BF6BA8F00E94307 /* RecursiveLock.swift */,
 				AAA06EF51BC8AA9B00620804 /* Thread.swift */,
 			);
 			path = Concurrency;
@@ -638,6 +646,7 @@
 				AA25099E1BE6DF8700E94307 /* FCGIRecord.swift in Sources */,
 				AA2509C01BEFD12D00E94307 /* FCGIError.swift in Sources */,
 				AAA06ED71BBF534F00620804 /* IOError.swift in Sources */,
+				AA2509DC1BF6BA8F00E94307 /* RecursiveLock.swift in Sources */,
 				AA2509CA1BF2C28500E94307 /* FCGIServer.swift in Sources */,
 				AAA06F4F1BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift in Sources */,
 				AAA06F5A1BD0948400620804 /* OutputStream+Strings.swift in Sources */,
@@ -645,6 +654,7 @@
 				AA2509A11BE6E2EF00E94307 /* FCGIRecordBody.swift in Sources */,
 				AAA06F451BCE098700620804 /* FileInputStream.swift in Sources */,
 				AAA06ED91BBF534F00620804 /* InputStream.swift in Sources */,
+				AA2509DF1BF6BA9D00E94307 /* Condition.swift in Sources */,
 				AA6230EE1BD5CA150094B96C /* BufferingOutputStream.swift in Sources */,
 				AAA06EF61BC8AA9B00620804 /* Thread.swift in Sources */,
 				AAA06F5F1BD1F4E600620804 /* CGIHTTPResponse.swift in Sources */,
@@ -673,6 +683,7 @@
 				AAA06F381BCC84ED00620804 /* TestInputStream.swift in Sources */,
 				AAA06F681BD2B24300620804 /* CGIServerTest.swift in Sources */,
 				AAA06F2E1BCB234200620804 /* CGIHTTPRequest.swift in Sources */,
+				AA2509E01BF6BA9D00E94307 /* Condition.swift in Sources */,
 				AA2509CB1BF2C28500E94307 /* FCGIServer.swift in Sources */,
 				AAA06F4D1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */,
 				AA6230EC1BD4483A0094B96C /* InputStream+StringsTest.swift in Sources */,
@@ -728,6 +739,7 @@
 				AAA06F621BD1FBDC00620804 /* CGIHTTPResponseTest.swift in Sources */,
 				AA2509B61BE9BEF400E94307 /* FCGINameValueSerializationTest.swift in Sources */,
 				AAA06F501BCEA28700620804 /* WriteNotifyingOutputStreamDelegate.swift in Sources */,
+				AA2509DD1BF6BA8F00E94307 /* RecursiveLock.swift in Sources */,
 				AAA06EE71BC6A67300620804 /* SeekOrigin.swift in Sources */,
 				AA2509D81BF5770D00E94307 /* HasherTest.swift in Sources */,
 				AAA06F101BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */,
