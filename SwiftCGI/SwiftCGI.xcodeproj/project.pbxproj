@@ -125,6 +125,11 @@
 		AAA06F681BD2B24300620804 /* CGIServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F671BD2B24300620804 /* CGIServerTest.swift */; };
 		AAA06F6A1BD3FCC200620804 /* InputStream+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F691BD3FCC200620804 /* InputStream+Strings.swift */; };
 		AAA06F6B1BD3FCC200620804 /* InputStream+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA06F691BD3FCC200620804 /* InputStream+Strings.swift */; };
+		AABADD6A1BF8E5A3004984B3 /* StringTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD691BF8E5A3004984B3 /* StringTokenizer.swift */; };
+		AABADD6B1BF8E5A3004984B3 /* StringTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD691BF8E5A3004984B3 /* StringTokenizer.swift */; };
+		AABADD6E1BF93326004984B3 /* StringTokenizerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD6C1BF93326004984B3 /* StringTokenizerTest.swift */; };
+		AABADD731BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD721BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift */; };
+		AABADD741C000A2D004984B3 /* CollectionType+IndexOfCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD6F1BF991DC004984B3 /* CollectionType+IndexOfCollection.swift */; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +217,10 @@
 		AAA06F631BD2A49200620804 /* CGIServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGIServer.swift; sourceTree = "<group>"; };
 		AAA06F671BD2B24300620804 /* CGIServerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGIServerTest.swift; sourceTree = "<group>"; };
 		AAA06F691BD3FCC200620804 /* InputStream+Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InputStream+Strings.swift"; sourceTree = "<group>"; };
+		AABADD691BF8E5A3004984B3 /* StringTokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTokenizer.swift; sourceTree = "<group>"; };
+		AABADD6C1BF93326004984B3 /* StringTokenizerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTokenizerTest.swift; sourceTree = "<group>"; };
+		AABADD6F1BF991DC004984B3 /* CollectionType+IndexOfCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+IndexOfCollection.swift"; sourceTree = "<group>"; };
+		AABADD721BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+IndexOfCollectionTest.swift"; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,7 +305,9 @@
 				AA2509D11BF50F5700E94307 /* DateTimeComponents.swift */,
 				AA2509E11BF6BFB100E94307 /* DateTimeFormatter.swift */,
 				AA2509D41BF5601A00E94307 /* Hasher.swift */,
+				AABADD6F1BF991DC004984B3 /* CollectionType+IndexOfCollection.swift */,
 				AAA06EC91BBE25AE00620804 /* String+URLEncoding.swift */,
+				AABADD691BF8E5A3004984B3 /* StringTokenizer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -304,11 +315,13 @@
 		AAA06ECC1BBE25BC00620804 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AABADD721BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift */,
 				AA2509D91BF67EC900E94307 /* DateTimeComponentsTest.swift */,
 				AA2509E41BF6C52B00E94307 /* DateTimeFormatterTest.swift */,
 				AA2509CF1BF4F33100E94307 /* DateTimeTest.swift */,
 				AA2509D71BF5770D00E94307 /* HasherTest.swift */,
 				AAA06ECD1BBE25BC00620804 /* String+URLEncodingTest.swift */,
+				AABADD6C1BF93326004984B3 /* StringTokenizerTest.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -645,6 +658,7 @@
 				AAA06F1B1BC9E64E00620804 /* HTTPMethod.swift in Sources */,
 				AA2509B21BE86FB000E94307 /* FCGINameValueSerialization.swift in Sources */,
 				AAA06EE31BC6016100620804 /* InputStream+Primitives.swift in Sources */,
+				AABADD6A1BF8E5A3004984B3 /* StringTokenizer.swift in Sources */,
 				AAA06F6A1BD3FCC200620804 /* InputStream+Strings.swift in Sources */,
 				AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AA2509A71BE7246400E94307 /* FCGIBeginRequestRole.swift in Sources */,
@@ -661,6 +675,7 @@
 				AA2509D21BF50F5700E94307 /* DateTimeComponents.swift in Sources */,
 				AA2509A11BE6E2EF00E94307 /* FCGIRecordBody.swift in Sources */,
 				AAA06F451BCE098700620804 /* FileInputStream.swift in Sources */,
+				AABADD741C000A2D004984B3 /* CollectionType+IndexOfCollection.swift in Sources */,
 				AAA06ED91BBF534F00620804 /* InputStream.swift in Sources */,
 				AA2509DF1BF6BA9D00E94307 /* Condition.swift in Sources */,
 				AA6230EE1BD5CA150094B96C /* BufferingOutputStream.swift in Sources */,
@@ -693,7 +708,9 @@
 				AAA06F2E1BCB234200620804 /* CGIHTTPRequest.swift in Sources */,
 				AA2509E01BF6BA9D00E94307 /* Condition.swift in Sources */,
 				AA2509CB1BF2C28500E94307 /* FCGIServer.swift in Sources */,
+				AABADD731BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift in Sources */,
 				AAA06F4D1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */,
+				AABADD6E1BF93326004984B3 /* StringTokenizerTest.swift in Sources */,
 				AA6230EC1BD4483A0094B96C /* InputStream+StringsTest.swift in Sources */,
 				AAA06EF01BC7664D00620804 /* OutputStream.swift in Sources */,
 				AAA06EE41BC6376C00620804 /* InputStream+Primitives.swift in Sources */,
@@ -703,6 +720,7 @@
 				AAA06F6B1BD3FCC200620804 /* InputStream+Strings.swift in Sources */,
 				AAA06F191BC968A200620804 /* HTTPStatusTest.swift in Sources */,
 				AAA06EDA1BBF534F00620804 /* InputStream.swift in Sources */,
+				AABADD6B1BF8E5A3004984B3 /* StringTokenizer.swift in Sources */,
 				AA2509B91BEE73A100E94307 /* FCGIRecordOutputStream.swift in Sources */,
 				AAA06EEA1BC75F9900620804 /* InputStream+PrimitivesTest.swift in Sources */,
 				AA2509BE1BEFA32F00E94307 /* FCGIRecordInputStream.swift in Sources */,
