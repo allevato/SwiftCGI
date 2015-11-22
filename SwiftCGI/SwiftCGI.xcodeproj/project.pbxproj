@@ -130,6 +130,8 @@
 		AABADD6E1BF93326004984B3 /* StringTokenizerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD6C1BF93326004984B3 /* StringTokenizerTest.swift */; };
 		AABADD731BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD721BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift */; };
 		AABADD741C000A2D004984B3 /* CollectionType+IndexOfCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD6F1BF991DC004984B3 /* CollectionType+IndexOfCollection.swift */; };
+		AABADD761C0127C6004984B3 /* HTTPCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD751C0127C6004984B3 /* HTTPCookie.swift */; };
+		AABADD781C012932004984B3 /* HTTPCookieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABADD771C012932004984B3 /* HTTPCookieTest.swift */; };
 		AAD34D911BB3B0AA00F81F17 /* SwiftCGI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */; };
 /* End PBXBuildFile section */
 
@@ -221,6 +223,8 @@
 		AABADD6C1BF93326004984B3 /* StringTokenizerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTokenizerTest.swift; sourceTree = "<group>"; };
 		AABADD6F1BF991DC004984B3 /* CollectionType+IndexOfCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+IndexOfCollection.swift"; sourceTree = "<group>"; };
 		AABADD721BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+IndexOfCollectionTest.swift"; sourceTree = "<group>"; };
+		AABADD751C0127C6004984B3 /* HTTPCookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPCookie.swift; sourceTree = "<group>"; };
+		AABADD771C012932004984B3 /* HTTPCookieTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPCookieTest.swift; sourceTree = "<group>"; };
 		AAD34D861BB3B0AA00F81F17 /* SwiftCGI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCGI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD34D8B1BB3B0AA00F81F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD34D901BB3B0AA00F81F17 /* SwiftCGITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCGITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -388,6 +392,7 @@
 		AAA06EFB1BC8C58100620804 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				AABADD751C0127C6004984B3 /* HTTPCookie.swift */,
 				AAA06F201BCAC5B700620804 /* HTTPHeaders.swift */,
 				AAA06F1A1BC9E64E00620804 /* HTTPMethod.swift */,
 				AAA06F251BCAF89700620804 /* HTTPRequest.swift */,
@@ -401,6 +406,7 @@
 		AAA06F111BC9688000620804 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				AABADD771C012932004984B3 /* HTTPCookieTest.swift */,
 				AAA06F231BCADC9B00620804 /* HTTPHeadersTest.swift */,
 				AAA06F1D1BCABF2600620804 /* HTTPMethodTest.swift */,
 				AAA06F181BC968A200620804 /* HTTPStatusTest.swift */,
@@ -662,6 +668,7 @@
 				AAA06F6A1BD3FCC200620804 /* InputStream+Strings.swift in Sources */,
 				AAA06ECA1BBE25AE00620804 /* String+URLEncoding.swift in Sources */,
 				AA2509A71BE7246400E94307 /* FCGIBeginRequestRole.swift in Sources */,
+				AABADD761C0127C6004984B3 /* HTTPCookie.swift in Sources */,
 				AA2509AA1BE724E500E94307 /* FCGIProtocolStatus.swift in Sources */,
 				AAA06F0F1BC95C3E00620804 /* HTTPStatus+Predefined.swift in Sources */,
 				AA25099E1BE6DF8700E94307 /* FCGIRecord.swift in Sources */,
@@ -708,6 +715,7 @@
 				AAA06F2E1BCB234200620804 /* CGIHTTPRequest.swift in Sources */,
 				AA2509E01BF6BA9D00E94307 /* Condition.swift in Sources */,
 				AA2509CB1BF2C28500E94307 /* FCGIServer.swift in Sources */,
+				AABADD781C012932004984B3 /* HTTPCookieTest.swift in Sources */,
 				AABADD731BFB8C05004984B3 /* CollectionType+IndexOfCollectionTest.swift in Sources */,
 				AAA06F4D1BCEA26700620804 /* WriteNotifyingOutputStream.swift in Sources */,
 				AABADD6E1BF93326004984B3 /* StringTokenizerTest.swift in Sources */,
