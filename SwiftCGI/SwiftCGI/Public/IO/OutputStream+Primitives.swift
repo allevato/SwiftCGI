@@ -20,7 +20,8 @@ public extension OutputStream {
   ///
   /// - Parameter value: The 8-bit signed integer to write.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func write(var value: Int8) throws {
+  func write(value: Int8) throws {
+    var value = value
     try write(&value)
   }
 
@@ -28,7 +29,8 @@ public extension OutputStream {
   ///
   /// - Parameter value: The 8-bit signed integer to write.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func write(var value: UInt8) throws {
+  func write(value: UInt8) throws {
+    var value = value
     try write(&value)
   }
 
@@ -36,7 +38,8 @@ public extension OutputStream {
   ///
   /// - Parameter value: The 16-bit signed integer to write.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func write(var value: Int16) throws {
+  func write(value: Int16) throws {
+    var value = value
     try write(&value)
   }
 
@@ -44,7 +47,8 @@ public extension OutputStream {
   ///
   /// - Parameter value: The 16-bit signed integer to write.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func write(var value: UInt16) throws {
+  func write(value: UInt16) throws {
+    var value = value
     try write(&value)
   }
 
@@ -52,7 +56,8 @@ public extension OutputStream {
   ///
   /// - Parameter value: The 32-bit signed integer to write.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func write(var value: Int32) throws {
+  func write(value: Int32) throws {
+    var value = value
     try write(&value)
   }
 
@@ -60,7 +65,8 @@ public extension OutputStream {
   ///
   /// - Parameter value: The 32-bit signed integer to write.
   /// - Throws: `IOError` if an error other than reaching the end of the stream occurs.
-  func write(var value: UInt32) throws {
+  func write(value: UInt32) throws {
+    var value = value
     try write(&value)
   }
 

@@ -72,15 +72,16 @@ public extension InputStream {
     }
     return decodeString(codeUnits, codec: codec)
   }
-  
+
   /// Helper function to decode a string from an array of code units.
   ///
   /// - Parameter codeUnits: The array of code units to be decoded.
   /// - Parameter codec: The codec to use to decode the string.
   /// - Returns: The decoded string, or nil if the string was not properly encoded.
   private func decodeString<Codec: UnicodeCodecType where Codec.CodeUnit == UInt8>(
-      codeUnits: [UInt8], var codec: Codec) -> String? {
+      codeUnits: [UInt8], codec: Codec) -> String? {
     var generator = codeUnits.generate()
+    var codec = codec
     var decoded = ""
 
     var decoding = true

@@ -50,24 +50,22 @@ class FCGIServer: ServerProtocol {
   /// dispatches them to the given handler as they arrive. The function runs indefinitely, stopping
   /// only if the web server closes the connection.
   ///
-  /// Note the signature of this function; it is a higher-order function that captures the given
-  /// request handler function and returns a `Void -> Void` function that can be used as a thread
-  /// procedure.
-  ///
   /// - Parameter handler: The user's handler to be called when the request is ready.
   /// - Returns: A no-argument function that listens for incoming requests and calls the given
   ///   handler when they are ready to be processed.
-  private func listenOnThread(handler: (HTTPRequest, HTTPResponse) -> Void)() {
-    while let socket = accept() {
-      let socketInputStream = FileInputStream(fileDescriptor: socket)
-      let socketOutputStream = FileOutputStream(fileDescriptor: socket)
+  private func listenOnThread(handler: (HTTPRequest, HTTPResponse) -> Void) -> (() -> Void) {
+    return {
+      while let socket = self.accept() {
+        let socketInputStream = FileInputStream(fileDescriptor: socket)
+        let socketOutputStream = FileOutputStream(fileDescriptor: socket)
 
-      let requestHandler = FCGIRequestHandler(
-          inputStream: socketInputStream, outputStream: socketOutputStream, handler: handler)
-      do {
-        try requestHandler.start()
-      } catch {
-        // TODO: Log the error.
+        let requestHandler = FCGIRequestHandler(
+            inputStream: socketInputStream, outputStream: socketOutputStream, handler: handler)
+        do {
+          try requestHandler.start()
+        } catch {
+          // TODO: Log the error.
+        }
       }
     }
   }
