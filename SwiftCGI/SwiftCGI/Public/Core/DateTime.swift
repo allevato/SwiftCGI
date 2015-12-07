@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Darwin
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
 
 
 /// A value denoting a date and time, represented as the number of milliseconds since midnight on

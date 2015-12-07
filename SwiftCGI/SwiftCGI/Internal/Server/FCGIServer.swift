@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Darwin
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
 
 
 /// The number of threads to run concurrently to process incoming requests.

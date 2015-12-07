@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Darwin
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
 
 
 /// The base year to which the C `tm` struct's `tm_year` value is added to get the calendar year.

@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Darwin
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
 
 
 /// A concurrency primitive that threads can wait on, continuing execution when another thread

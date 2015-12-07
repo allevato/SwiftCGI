@@ -12,8 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Darwin
 @testable import SwiftCGI
+
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
+
 import XCTest
 
 

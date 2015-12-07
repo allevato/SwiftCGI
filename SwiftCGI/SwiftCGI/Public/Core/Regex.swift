@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Darwin
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
 
 
 /// Represents a regular expression, providing operations to test for a match, find matches, split,
@@ -99,7 +103,7 @@ public final class Regex {
 
           return Match(groups: captureGroups)
         }
-        
+
         return nil
       }
     }
@@ -150,7 +154,7 @@ public final class Regex {
       self.string = string
     }
   }
-  
+
   /// The number of parenthesized subexpressions (groups) in the regular expression.
   public var groupCount: Int {
     return regex.re_nsub
