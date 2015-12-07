@@ -12,9 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import Foundation
+
 
 /// The formatter used to format the expiration time of a cookie when written as an HTTP header.
-private let CookieDateTimeFormatter = DateTimeFormatter(formatString: "%a, %d-%b-%Y %H:%M:%S %z")
+private let CookieDateTimeFormatter = { () -> NSDateFormatter in
+  let formatter = NSDateFormatter()
+  formatter.dateFormat = "EEEE', 'dd'-'MMM'-'yyyy' 'HH':'mm':'ss' 'ZZZZ"
+  return formatter
+}()
 
 
 /// Represents a cookie in an HTTP request or response.
@@ -30,7 +36,7 @@ public struct HTTPCookie {
   public var value: String
 
   /// The time at which the cookie expires.
-  public var expirationTime: DateTime?
+  public var expirationTime: NSDate?
 
   /// The path that specifies the subset of URLs for which the cookie is valid.
   public var path: String?
@@ -47,7 +53,7 @@ public struct HTTPCookie {
     var string = "\(name.URLEncodedString)=\(value.URLEncodedString)"
 
     if let expirationTime = expirationTime {
-      let formattedDate = CookieDateTimeFormatter.format(expirationTime)
+      let formattedDate = CookieDateTimeFormatter.stringFromDate(expirationTime)
       string.appendContentsOf("; expires=\(formattedDate)")
     }
     if let path = path {
