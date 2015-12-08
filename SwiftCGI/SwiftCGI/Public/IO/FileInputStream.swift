@@ -12,22 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#if os(Linux)
-import Glibc
-#else
-import Darwin.C
-#endif
+import Foundation
 
 
 /// An input stream that reads content from a file or file descriptor.
 public class FileInputStream: InputStream {
 
-  /// The file descriptor associated with the stream.
-  private let fileDescriptor: Int32
-
-  /// Indicates whether the underlying file descriptor should be closed, if it isn't already, when
-  /// the stream is deallocated.
-  private var closeOnDeinit: Bool
+  /// The file handle associated with the stream.
+  private let fileHandle: NSFileHandle!
 
   /// Creates a new input stream that reads from the given file descriptor.
   ///
@@ -36,8 +28,7 @@ public class FileInputStream: InputStream {
   ///
   /// - Parameter fileDescriptor: The POSIX file descriptor from which the stream will read.
   public init(fileDescriptor: Int32) {
-    self.fileDescriptor = fileDescriptor
-    closeOnDeinit = false
+    fileHandle = NSFileHandle(fileDescriptor: fileDescriptor, closeOnDealloc: false)
   }
 
   /// Creates a new input stream that reads from the file at the given path.
@@ -49,16 +40,9 @@ public class FileInputStream: InputStream {
   ///
   /// - Parameter path: The path to the file that should be opened.
   public init?(path: String) {
-    fileDescriptor = path.withCString { cString in open(cString, 0) }
-    closeOnDeinit = true
-    guard fileDescriptor != -1 else {
+    fileHandle = NSFileHandle(forReadingAtPath: path)
+    if fileHandle == nil {
       return nil
-    }
-  }
-
-  deinit {
-    if closeOnDeinit {
-      close()
     }
   }
 
@@ -69,39 +53,32 @@ public class FileInputStream: InputStream {
 
     return try buffer.withUnsafeMutableBufferPointer {
       (inout buffer: UnsafeMutableBufferPointer<UInt8>) in
-      let pointer = buffer.baseAddress.advancedBy(offset)
-      let bytesRead = Darwin.read(fileDescriptor, pointer, count)
-      if bytesRead == 0 {
+      let data = fileHandle.readDataOfLength(count)
+      if data.length == 0 {
         throw IOError.EOF
       }
       // TODO: Handle errors other than EOF.
-      return bytesRead
+
+      let destination = buffer.baseAddress.advancedBy(offset)
+      destination.assignFrom(UnsafeMutablePointer<UInt8>(data.bytes), count: data.length)
+      return data.length
     }
   }
 
   public func seek(offset: Int, origin: SeekOrigin) throws -> Int {
-    let whence = lseekWhenceForSeekOrigin(origin)
-    let newOffset = lseek(fileDescriptor, off_t(offset), whence)
-    return Int(newOffset)
+    switch origin {
+    case .Begin:
+      fileHandle.seekToFileOffset(UInt64(offset))
+    case .Current:
+      fileHandle.seekToFileOffset(fileHandle.offsetInFile + UInt64(offset))
+    case .End:
+      fileHandle.seekToEndOfFile()
+      fileHandle.seekToFileOffset(fileHandle.offsetInFile + UInt64(offset))
+    }
+    return Int(fileHandle.offsetInFile)
   }
 
   public func close() {
-    Darwin.close(fileDescriptor)
-    closeOnDeinit = false
-  }
-
-  /// Returns the `whence` argument for `lseek` that corresponds to the given `SeekOrigin`.
-  ///
-  /// - Parameter origin: The `SeekOrigin` value.
-  /// - Returns: The corresponding `whence` argument.
-  private func lseekWhenceForSeekOrigin(origin: SeekOrigin) -> Int32 {
-    switch origin {
-    case .Begin:
-      return SEEK_SET
-    case .Current:
-      return SEEK_CUR
-    case .End:
-      return SEEK_END
-    }
+    fileHandle.closeFile()
   }
 }
