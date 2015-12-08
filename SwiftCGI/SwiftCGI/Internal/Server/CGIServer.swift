@@ -13,6 +13,11 @@
 // limitations under the License.
 
 import Foundation
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
 
 
 /// The server implementation used when the application is running as a CGI process.
@@ -44,8 +49,6 @@ class CGIServer: ServerProtocol {
   /// Creates a new server that takes its environment from the process's environment and that uses
   /// the `stdin` and `stdout` file descriptors as its request and response streams, respectively.
   convenience init() {
-    // TODO: Eliminate this dependency on Foundation. Would be nice if the POSIX "environ" variable
-    // were exposed to Swift.
     let process = NSProcessInfo.processInfo()
     let environment = process.environment
 
