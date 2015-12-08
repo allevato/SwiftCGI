@@ -26,10 +26,10 @@ private let URLEncodingUnreservedCodeUnits: Set<UTF8.CodeUnit> = {
   set.unionInPlace(codeUnitRangeArray("A", "Z"))
   set.unionInPlace(codeUnitRangeArray("a", "z"))
   set.unionInPlace(codeUnitRangeArray("0", "9"))
-  set.insert(UTF8.CodeUnit(UnicodeScalar("-").value))
-  set.insert(UTF8.CodeUnit(UnicodeScalar("_").value))
-  set.insert(UTF8.CodeUnit(UnicodeScalar(".").value))
-  set.insert(UTF8.CodeUnit(UnicodeScalar("~").value))
+  set.insert(UTF8.CodeUnit(ascii: "-".unicodeScalars.first!))
+  set.insert(UTF8.CodeUnit(ascii: "_".unicodeScalars.first!))
+  set.insert(UTF8.CodeUnit(ascii: ".".unicodeScalars.first!))
+  set.insert(UTF8.CodeUnit(ascii: "~".unicodeScalars.first!))
   return set
 }()
 
