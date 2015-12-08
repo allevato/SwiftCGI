@@ -36,7 +36,7 @@ public class RecursiveLock {
   /// Creates a new mutex.
   public init() {
     pthread_mutexattr_init(&mutexAttr)
-    pthread_mutexattr_settype(&mutexAttr, PTHREAD_MUTEX_RECURSIVE)
+    pthread_mutexattr_settype(&mutexAttr, Int32(PTHREAD_MUTEX_RECURSIVE))
     pthread_mutex_init(&mutex, &mutexAttr)
   }
 
