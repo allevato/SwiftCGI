@@ -55,7 +55,7 @@ class FCGIServer: ServerProtocol {
   ///   handler when they are ready to be processed.
   private func listenOnThread(handler: (HTTPRequest, HTTPResponse) -> Void) -> (() -> Void) {
     return {
-      while let socket = self.accept() {
+      while let socket = self.acceptConnection() {
         let socketInputStream = FileInputStream(fileDescriptor: socket)
         let socketOutputStream = FileOutputStream(fileDescriptor: socket)
 
@@ -74,10 +74,10 @@ class FCGIServer: ServerProtocol {
   /// socket's file descriptor, blocking if there are no connections pending.
   ///
   /// - Returns: The socket's file descriptor, or nil if an error occurred.
-  private func accept() -> Int32? {
+  private func acceptConnection() -> Int32? {
     var address = sockaddr()
     var addressLen = socklen_t()
-    let socket = Darwin.accept(0, &address, &addressLen)
+    let socket = accept(0, &address, &addressLen)
     if socket > 0 {
       return socket
     } else {
