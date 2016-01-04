@@ -14,10 +14,6 @@
 
 #if os(Linux)
 import Glibc
-// Why are these not getting picked up in this file? They work fine from a standalone file or from
-// the REPL.
-private let EINVAL: Int32 = 22
-private let ENOTSOCK: Int32 = 88
 #else
 import Darwin.C
 #endif
