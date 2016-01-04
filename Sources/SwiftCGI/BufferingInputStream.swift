@@ -81,7 +81,7 @@ public class BufferingInputStream: InputStream {
   }
 
   public func close() {
-//    inputStream.close()
+    inputStream.close()
   }
 
   /// Reads data at most once from the underlying stream, filling the buffer if necessary.
