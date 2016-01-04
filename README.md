@@ -82,7 +82,7 @@ file extension (`.fcgi`). For more advanced configurations, consult your web ser
 
 1. Build `mod_fastcgi`:
 
-        $ brew install mod_fastcgi
+        $ brew install homebrew/apache/mod_fastcgi
 
    Verify that the module was installed; in my configuration, the binary was in
 
