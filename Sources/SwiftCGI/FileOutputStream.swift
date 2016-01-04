@@ -74,6 +74,6 @@ public class FileOutputStream: OutputStream {
   }
 
   public func flush() {
-    // Not implemented because file descriptor I/O is written directly to the file/device.
+    fileHandle.synchronizeFile()
   }
 }
