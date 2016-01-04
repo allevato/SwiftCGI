@@ -12,8 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import Foundation
+import Glibc
 import SwiftCGI
-
 
 let server = Server()
 server.listen { request, response in
@@ -51,3 +52,4 @@ server.listen { request, response in
     fatalError("Failed to write output to the response stream.")
   }
 }
+
