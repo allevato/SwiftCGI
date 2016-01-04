@@ -40,7 +40,10 @@ public class BufferingOutputStream: OutputStream {
   }
 
   deinit {
-    close()
+    // Only flush the underlying stream on deinitialization, rather than close it. If the underlying
+    // stream wants to be closed, then it will handle that itself when its own deinitializer is
+    // executed.
+    flush()
   }
 
   public func write(buffer: [UInt8], offset: Int, count: Int) throws {

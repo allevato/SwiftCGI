@@ -42,10 +42,6 @@ public class BufferingInputStream: InputStream {
     inputBufferOffset = 0
   }
 
-  deinit {
-    close()
-  }
-
   public func read(inout buffer: [UInt8], offset: Int, count: Int) throws -> Int {
     if count == 0 {
       return 0
@@ -85,7 +81,7 @@ public class BufferingInputStream: InputStream {
   }
 
   public func close() {
-    inputStream.close()
+//    inputStream.close()
   }
 
   /// Reads data at most once from the underlying stream, filling the buffer if necessary.
